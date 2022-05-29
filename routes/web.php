@@ -19,7 +19,6 @@ Route::get('/', function () {
     return View('pages.index');
 });
 
-Route::resources([
-    'plates' => PlateController::class,
-    'productions' => ProductionController::class,
-]);
+Route::get('/productions/print/{production}', [ProductionController::class, 'print'])->name('productions.print');
+Route::resource('plates', PlateController::class)->except(['create', 'store', 'edit', 'update']);
+Route::resource('productions', ProductionController::class)->only(['index', 'show']);

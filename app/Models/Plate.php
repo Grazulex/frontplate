@@ -16,7 +16,8 @@ class Plate extends Model
     protected $fillable = ['reference', 'type', 'origin', 'order_id', 'customer', 'customer_key', 'is_cod', 'is_rush', 'created_at', 'production_id', 'datas'];
 
     protected $casts = [
-        'origin' => OriginEnums::class
+        'origin'    => OriginEnums::class,
+        'datas'     => 'array'
     ];
 
     protected $searchableFields = ['*'];

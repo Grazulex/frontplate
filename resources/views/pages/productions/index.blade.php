@@ -6,7 +6,7 @@
     <section class="breadcrumb">
         <h1>Dashboard</h1>
         <ul>
-            <li><a href="#">Productions</a></li>
+            <li><a href="{{ route('productions.index')}}">Productions</a></li>
             <li class="divider la la-arrow-right"></li>
             <li>Listing</li>
         </ul>
@@ -29,9 +29,8 @@
                         <td>{{ $production->plates_count }}</td>
 
                         <td>
-                            <a href="" class="border-solid border-2 border-success rounded-full text-center p-2"><i class="las la-eye"></i></a>
-                            <a href="" class="border-solid border-2 border-info rounded-full text-center p-2"><i class="las la-pen"></i></a>
-                            <a href="" class="border-solid border-2 border-danger rounded-full text-center p-2"><i class="las la-trash"></i></a>
+                            <a href="{{ route('productions.show', $production->id)}}" class="border-solid border-2 border-success rounded-full text-center p-2"><i class="las la-eye"></i></a>
+                            <a href="{{ route('productions.print', $production->id)}}" class="border-solid border-2 border-primary rounded-full text-center p-2"><i class="las la-file-csv"></i></a>
                         </td>
                     </tr>
                 @empty   

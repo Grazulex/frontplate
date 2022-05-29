@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreProductionRequest;
-use App\Http\Requests\UpdateProductionRequest;
 use App\Models\Production;
+use App\Services\ProductionService;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ProductionController extends Controller
 {
@@ -23,69 +23,32 @@ class ProductionController extends Controller
         return view('pages.productions.index', compact('productions', 'search'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    public function show(Production $production): View
     {
-        //
+        return view('pages.productions.show', compact('production'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreProductionRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreProductionRequest $request)
+    public function print(Production $production): StreamedResponse
     {
-        //
+        $filename = 'prod_'.$production->id.'.csv';
+
+        $headers = array(
+            "Content-type"        => "text/csv",
+            "Content-Disposition" => "attachment; filename=$filename",
+            "Pragma"              => "no-cache",
+            "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+            "Expires"             => "0"
+        );
+
+        $productionService = new ProductionService($production);
+        $productionService->makeCsv();
+
+        $callback = function() use ($filename) {
+            readfile($filename);
+        };
+
+        return response()->stream($callback, 200, $headers);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Production  $production
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Production $production)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Production  $production
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Production $production)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateProductionRequest  $request
-     * @param  \App\Models\Production  $production
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateProductionRequest $request, Production $production)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Production  $production
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Production $production)
-    {
-        //
-    }
 }
