@@ -6,21 +6,15 @@ use App\Models\Production;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class ProductionSeeder extends Seeder
 {
-
-    use WithoutModelEvents;
-    
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        $this->call([
-            ProductionSeeder::class,
-            PlateSeeder::class,
-        ]);
+        Production::factory()->count(40)->create();
     }
 }

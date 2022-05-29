@@ -10,7 +10,7 @@
     <!-- Search -->
     <form class="hidden md:block ltr:ml-10 rtl:mr-10" action="#">
         <label class="form-control-addon-within rounded-full">
-            <input type="text" class="form-control border-none" placeholder="Search">
+            <input type="text" class="form-control border-none" placeholder="Search" name="search">
             <button type="button"
                 class="btn btn-link text-gray-300 dark:text-gray-700 dark:hover:text-primary text-xl leading-none la la-search ltr:mr-4 rtl:ml-4"></button>
         </label>
@@ -165,11 +165,11 @@
     <div class="menu-detail" data-menu="plate">
         <div class="menu-detail-wrapper">
             <h6 class="uppercase">Listing</h6>
-            <a href="{{ url('/ui/form/components') }}">
+            <a href="{{ url('/plates/') }}">
                 <span class="las la-car"></span>
                 Plates
             </a>
-            <a href="{{ url('/ui/form/input-groups') }}">
+            <a href="{{ url('/productions/') }}">
                 <span class="las la-industry"></span>
                 Production files
             </a>
