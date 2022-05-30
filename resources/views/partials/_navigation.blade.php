@@ -165,11 +165,11 @@
     <div class="menu-detail" data-menu="plate">
         <div class="menu-detail-wrapper">
             <h6 class="uppercase">Listing</h6>
-            <a href="{{ url('/plates/') }}">
+            <a href="{{ route('plates.index') }}">
                 <span class="las la-car"></span>
                 Plates
             </a>
-            <a href="{{ url('/productions/') }}">
+            <a href="{{ route('productions.index') }}">
                 <span class="las la-industry"></span>
                 Production files
             </a>
@@ -189,7 +189,7 @@
     <div class="menu-detail" data-menu="cash">
         <div class="menu-detail-wrapper">
             <h6 class="uppercase">Listing</h6>
-            <a href="{{ url('pages/auth/login') }}">
+            <a href="{{ route('cashes.index') }}">
                 <span class="las la-cash-register"></span>
                 Cash ledgers
             </a>
@@ -199,7 +199,7 @@
             </a>
             <hr>
             <h6 class="uppercase">Inserts</h6>
-            <a href="{{ url('pages/blog/list') }}">
+            <a href="{{ route('cashes.create') }}">
                 <span class="las la-euro-sign"></span>
                 Cash Ledgers
             </a>
