@@ -50,7 +50,7 @@ class ImportEshopCommand extends Command
                         'customer_key'  => $order['destination_key'],
                         'amount'        => 0,
                         'is_cod'        => false,
-                        'datas'         => json_encode($order)
+                        'datas'         => $order
                     ]);
                 }
             }

@@ -71,7 +71,7 @@ class ImportInmotivCommand extends Command
                             'customer_key'  => $order['destination_key'],
                             'amount'        => (float)(str_replace(',','.',$order['price'])),
                             'is_cod'        => $isCod,
-                            'datas'         => json_encode($order)
+                            'datas'         => $order
                         ]);
                     }
                 }
