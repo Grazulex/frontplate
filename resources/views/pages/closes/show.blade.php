@@ -21,6 +21,10 @@
                     <td class="ltr:text-left rtl:text-right uppercase">Date</td>
                     <td>{{ $close->created_at }}</td>
                 </tr>
+                <tr>
+                    <td class="ltr:text-left rtl:text-right uppercase">Diff</td>
+                    <td><x-format-amount :amount="$close->diff" currency="eur" locale="fr_BE" /></td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -53,6 +57,8 @@
             @endforelse
             </tbody>
         </table>
+        <h4>Closes - Receptions {{ $close->created_at}}</h4>
+        <h4>Closes - Scans {{ $close->created_at}}</h4>
     </div>
 
 @endsection

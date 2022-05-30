@@ -61,6 +61,8 @@
 
             <h3>Receptions</h3>
 
+            <h3>Scans</h3>
+
             <button type="submit" class="btn btn_primary uppercase">Save</button>
 
         </form>

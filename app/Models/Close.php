@@ -12,11 +12,22 @@ class Close extends Model
     use HasFactory;
     use Searchable;
 
+    protected $fillable = ['diff'];
+
+    protected $casts = [
+        'diff'    => 'integer',
+    ];
+
     protected $searchableFields = ['*'];
     
     public function cashes(): HasMany
     {
         return $this->hasMany(Cash::class);
+    }
+
+    public function setDiffAttribute($price): void
+    {
+        $this->attributes['diff'] = $price * 100;
     }
 
 }

@@ -20,6 +20,8 @@
                     <th class="ltr:text-left rtl:text-right uppercase">Date close</th>
                     <th class="ltr:text-left rtl:text-right uppercase">Cashes</th>
                     <th class="ltr:text-left rtl:text-right uppercase">Receptions</th>
+                    <th class="ltr:text-left rtl:text-right uppercase">Scans</th>
+                    <th class="ltr:text-left rtl:text-right uppercase">Diff</th>
                     <th class="ltr:text-left rtl:text-right uppercase">Action</th>
                 </tr>
             </thead>
@@ -29,13 +31,15 @@
                         <td>{{ $close->created_at }}</td>
                         <td>{{ $close->cashes_count }}</td>
                         <td></td>
+                        <td></td>
+                        <td><x-format-amount :amount="$close->diff" currency="eur" locale="fr_BE" /></td>
                         <td>
                             <a href="{{ route('closes.show', $close->id)}}" class="border-solid border-2 border-success rounded-full text-center p-2"><i class="las la-eye"></i></a>
                         </td>
                     </tr>
                 @empty   
                     <tr>
-                        <td colspan="4">{{ __('No closes found.') }}</td>
+                        <td colspan="6">{{ __('No closes found.') }}</td>
                     </tr>
  
                 @endforelse
