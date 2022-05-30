@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CashController;
+use App\Http\Controllers\CloseController;
 use App\Http\Controllers\PlateController;
 use App\Http\Controllers\ProductionController;
 use Illuminate\Support\Facades\Route;
@@ -24,3 +25,4 @@ Route::get('/productions/print/{production}', [ProductionController::class, 'pri
 Route::resource('plates', PlateController::class)->except(['create', 'store', 'edit', 'update']);
 Route::resource('productions', ProductionController::class)->only(['index', 'show']);
 Route::resource('cashes', CashController::class)->except(['show']);
+Route::resource('closes', CloseController::class)->except(['edit', 'update']);;

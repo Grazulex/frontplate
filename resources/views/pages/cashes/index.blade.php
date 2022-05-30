@@ -32,6 +32,7 @@
                     <th class="ltr:text-left rtl:text-right uppercase">Amount</th>
                     <th class="ltr:text-left rtl:text-right uppercase">Comment</th>
                     <th class="ltr:text-left rtl:text-right uppercase">Total</th>
+                    <th class="ltr:text-left rtl:text-right uppercase">Closing</th>
                     <th class="ltr:text-left rtl:text-right uppercase">Action</th>
                 </tr>
             </thead>
@@ -43,13 +44,16 @@
                         <td><x-format-amount :amount="$cash->amount" currency="eur" locale="fr_BE" /></td>
                         <td>{{ $cash->comment }}</td>
                         <td><x-format-amount :amount="$cash->total" currency="eur" locale="fr_BE" /></td>
+                        <td>{{ optional($cash->close)->created_at }}</td>
                         <td>
-                            <form action="{{ route('cashes.destroy', $cash->id) }}" method="POST">
-                                <a href="{{ route('cashes.edit', $cash->id) }}" class="border-solid border-2 border-primary rounded-full text-center p-2"><i class="las la-pen"></i></a>
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="border-solid border-2 border-danger rounded-full text-center p-2"><i class="las la-trash"></i></button>                                
-                            </form>
+                            @if (!$cash->close)
+                                <form action="{{ route('cashes.destroy', $cash->id) }}" method="POST">
+                                    <a href="{{ route('cashes.edit', $cash->id) }}" class="border-solid border-2 border-primary rounded-full text-center p-2"><i class="las la-pen"></i></a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="border-solid border-2 border-danger rounded-full text-center p-2"><i class="las la-trash"></i></button>                                
+                                </form>
+                            @endif                                    
                         </td>
                     </tr>
                 @empty   

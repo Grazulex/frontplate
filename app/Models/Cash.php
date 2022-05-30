@@ -12,7 +12,7 @@ class Cash extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = ['user_id', 'amount', 'total', 'comment'];
+    protected $fillable = ['user_id', 'amount', 'total', 'comment', 'close_id'];
 
     protected $casts = [
         'amount'    => 'integer',
@@ -25,6 +25,12 @@ class Cash extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function close(): BelongsTo
+    {
+        return $this->belongsTo(Close::class);
+    }
+
 
     public function setAmountAttribute($price): void
     {

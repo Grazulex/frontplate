@@ -12,11 +12,6 @@ use Illuminate\Http\Request;
 
 class CashController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request): View
     {
         $search = $request->get('search', '');
@@ -24,6 +19,7 @@ class CashController extends Controller
         $cashes = Cash::search($search)
             ->latest()
             ->with('user')
+            ->with('close')
             ->paginate(10);
 
         return view('pages.cashes.index', compact('cashes', 'search'));

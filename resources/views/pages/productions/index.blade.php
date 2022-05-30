@@ -13,7 +13,7 @@
     </section>
 
     <div class="card p-5">
-        <h3>Plates - Listing</h3>
+        <h3>Productions - Listing</h3>
         <table class="table table_hoverable w-full mt-3">
             <thead>
                 <tr>
