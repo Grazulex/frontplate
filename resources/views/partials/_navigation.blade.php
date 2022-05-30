@@ -193,6 +193,10 @@
                 <span class="las la-cash-register"></span>
                 Cash ledgers
             </a>
+            <a href="{{ route('receptions.index') }}">
+                <span class="las la-clipboard-list"></span>
+                Reception
+            </a>
             <a href="{{ route('closes.index') }}">
                 <span class="las la-clipboard-list"></span>
                 Closing
@@ -202,6 +206,10 @@
             <a href="{{ route('cashes.create') }}">
                 <span class="las la-euro-sign"></span>
                 Cash Ledgers
+            </a>
+            <a href="{{ route('receptions.create') }}">
+                <span class="las la-creative-commons-nc-eu"></span>
+                Reception
             </a>
             <a href="{{ route('closes.create') }}">
                 <span class="las la-balance-scale"></span>

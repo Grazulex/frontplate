@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Models\Cash;
+use App\Models\Close;
 use App\Observers\CashObserver;
+use App\Observers\CloseObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

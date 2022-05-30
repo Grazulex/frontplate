@@ -60,6 +60,28 @@
             </table>
 
             <h3>Receptions</h3>
+            <table class="table table_hoverable w-full mt-3">
+                <thead>
+                    <tr>
+                        <th class="ltr:text-left rtl:text-right uppercase">Date</th>
+                        <th class="ltr:text-left rtl:text-right uppercase">Amount cash</th>
+                        <th class="ltr:text-left rtl:text-right uppercase">Amount bbc</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($receptions as $reception)
+                        <tr>
+                            <td>{{ $reception->created_at }}</td>
+                            <td><x-format-amount :amount="$reception->amount_cash" currency="eur" locale="fr_BE" /></td>
+                            <td><x-format-amount :amount="$reception->amount_bbc" currency="eur" locale="fr_BE" /></td>
+                        </tr>
+                    @empty   
+                        <tr>
+                            <td colspan="5">{{ __('No receptions found.') }}</td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
 
             <h3>Scans</h3>
 

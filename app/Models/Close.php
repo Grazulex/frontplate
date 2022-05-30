@@ -25,9 +25,9 @@ class Close extends Model
         return $this->hasMany(Cash::class);
     }
 
-    public function setDiffAttribute($price): void
+    public function receptions(): HasMany
     {
-        $this->attributes['diff'] = $price * 100;
+        return $this->hasMany(Reception::class);
     }
 
 }

@@ -6,6 +6,7 @@ use App\Http\Requests\StoreCloseRequest;
 use App\Http\Requests\UpdateCloseRequest;
 use App\Models\Cash;
 use App\Models\Close;
+use App\Models\Reception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -19,6 +20,7 @@ class CloseController extends Controller
         $closes = Close::search($search)
             ->latest()
             ->withCount('cashes')
+            ->withCount('receptions')
             ->paginate(10);
 
         return view('pages.closes.index', compact('closes', 'search'));
@@ -31,22 +33,35 @@ class CloseController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
 
-        return view('pages.closes.create', compact('cashes'));
+        $receptions = Reception::whereNull('close_id')
+            ->orderBy('created_at', 'desc')
+            ->get();            
+
+        return view('pages.closes.create', compact('cashes', 'receptions'));
     }
 
     public function store(StoreCloseRequest $request): RedirectResponse
     {
         $close = Close::create($request->validated());
 
-        $cashes = Cash::whereNull('close_id')
-            ->with('user')
-            ->orderBy('created_at', 'desc')
-            ->get();
+        $cashes = Cash::whereNull('close_id')->get();
         foreach ($cashes as $cash)
         {
             $cash->close_id = $close->id;
             $cash->update();
         }
+
+        $diff=0;
+        $receptions = Reception::whereNull('close_id')->get(); 
+        foreach ($receptions as $reception)
+        {
+            $diff=$diff - $reception->amount_cash;
+            $reception->close_id = $close->id;
+            $reception->update();
+        }
+
+        $close->diff = $diff;
+        $close->update();
 
         return redirect()
             ->route('closes.index')
@@ -58,37 +73,4 @@ class CloseController extends Controller
         return view('pages.closes.show', compact('close'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Close  $close
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Close $close)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateCloseRequest  $request
-     * @param  \App\Models\Close  $close
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateCloseRequest $request, Close $close)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Close  $close
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Close $close)
-    {
-        //
-    }
 }

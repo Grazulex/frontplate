@@ -30,7 +30,7 @@
                     <tr>
                         <td>{{ $close->created_at }}</td>
                         <td>{{ $close->cashes_count }}</td>
-                        <td></td>
+                        <td>{{ $close->receptions_count }}</td>
                         <td></td>
                         <td><x-format-amount :amount="$close->diff" currency="eur" locale="fr_BE" /></td>
                         <td>
