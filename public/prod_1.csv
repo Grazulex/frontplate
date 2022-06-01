@@ -1,8 +1,160 @@
 "Plate nr.";"Ref plaque";"Order date";OwnerID;"Nom Client";"Rue Client";"Nr. Client";"Boite ClIENT";Commune;"Code postal"
+2CCF644;N1FR;"2022-06-01 10:02:00";1234704;"Mohammad Alhamdo";"Rue de la Bougie";11;;Anderlecht;1070
+2CCE722;N1FR;"2022-05-31 18:44:00";1234535;"Serhii Faliboha";"Félix Vande Sandestraat";12;0.01;Koekelberg;1081
+2CCG002;N1FR;"2022-06-01 10:55:00";1234736;"Philippe Heine";"Rue Joseph Guilleaume";27;;Ramillies;1367
+2CCG463;N1FR;"2022-06-01 11:52:00";1234773;"Alexis Vanderhaegen";"Rue du Stampia";79;;Grez-Doiceau;1390
+2CCF864;N1FR;"2022-06-01 10:33:00";1234722;"KBC verzekeringskantoor Fluyt & Nevens";Toekomstlaan;3;;Sint-Genesius-Rode;1640
+2CCF834;N1FR;"2022-06-01 10:28:00";1234720;"Garage OK Auto";Brusselsesteenweg;70A;;Asse;1730
+2CCF506;N1FR;"2022-06-01 09:47:00";1234692;"KDW v.o.f.";Pamelstraat;10;;Roosdaal;1760
+2CCF271;N1FR;"2022-06-01 09:18:00";1234652;"Ivo Mariën";Stationslaan;18;;Steenokkerzeel;1820
+2CCE520;N1FR;"2022-05-31 17:12:00";1234520;"ATHLON CAR LEASE BELGIUM";Peutiesesteenweg;115;;Machelen;1830
+2CCE413;N1FR;"2022-06-01 09:27:00";1234674;"Athlon Car Lease Belgium NV ";"Peutiesesteenweg 115";;;Machelen;1830
+2CCE667;N1FR;"2022-05-31 17:59:00";1234532;"Karel Van Dinter";Mutsaardstraat;38;;Antwerpen;2000
+2CCF951;N1FR;"2022-06-01 10:47:00";1234731;"MARCEL HOROWITZ NV";SCHUPSTRAAT;9/11;22;ANTWERPEN;2018
+2CCF835;N1FR;"2022-06-01 10:28:00";1234719;"Toon OSAER";Halewijnlaan;92;;ANTWERPEN;2050
+2CCE994;N1FR;"2022-06-01 08:37:00";1234617;"TRUCK CENTER MERCEDES ANTWERPE?";KATWILG;4;;ANTWERPEN;2050
+2CCE785;N1FR;"2022-05-31 16:48:00";1234513;"AssurArt.be KBC Verzekeringen";Oevelseweg;51;a;Olen;2250
+2CCF177;N1FR;"2022-06-01 09:02:00";1234632;"Proteas verzekeringen nv";Parklaan;124;1;TURNHOUT;2300
+2CCG448;N1FR;"2022-06-01 11:49:00";1234771;"Garage Van Mossel Mercedes-Benz";"Steenweg op Gierle";355;;Turnhout;2300
+2CCG152;N1FR;"2022-06-01 11:14:00";1234742;"Kris Verschueren";"Kleine Gammel";54;;Rijkevorsel;2310
+2CCF517;N1FR;"2022-06-01 09:48:00";1234694;"Arnoldus van Gerwen";"De Buskens";10;;Ravels;2380
+2CCF261;N1FR;"2022-06-01 09:17:00";1234650;"Jean Behets";Velodroomstraat;20;0003;Geel;2440
+2CCG150;N1FR;"2022-06-01 11:15:00";1234743;"Ludwig Wouters";Nieuwstraat;21;;Dessel;2480
+2CCF252;N1FR;"2022-06-01 09:14:00";1234645;"Bart Kemps";Kapelstraat;13;;Balen;2490
+2CCF318;N1FR;"2022-06-01 09:26:00";1234668;"Garage Frédéric Koninckx Motors";"Prins Boudewijnlaan";9;9;Kontich;2550
+2CCF843;N1FR;"2022-06-01 10:29:00";1234721;"Sofie Roels";Lintsesteenweg;192;0003;Duffel;2570
+2CCF161;N1FR;"2022-06-01 09:06:00";1234638;"Agrias verzekeringen BV";Dorpsstraat;58;;Berlaar;2590
+2CBB585;N1FR;"2022-06-01 08:05:00";1234588;"Koen Desmet";Plantinlaan;6;;Stabroek;2940
+2CCE869;N1FR;"2022-06-01 07:46:00";1234576;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCE873;N1FR;"2022-06-01 07:49:00";1234580;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCE895;N1FR;"2022-06-01 08:07:00";1234595;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCE904;N1FR;"2022-06-01 08:10:00";1234598;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCE909;N1FR;"2022-06-01 08:12:00";1234603;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCE910;N1FR;"2022-06-01 08:13:00";1234604;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCE922;N1FR;"2022-06-01 08:16:00";1234606;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCE940;N1FR;"2022-06-01 08:21:00";1234610;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCE951;N1FR;"2022-06-01 08:25:00";1234612;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCE954;N1FR;"2022-06-01 08:26:00";1234613;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCE960;N1FR;"2022-06-01 08:28:00";1234614;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCF013;N1FR;"2022-06-01 07:41:00";1234572;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCF014;N1FR;"2022-06-01 08:11:00";1234601;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCF044;N1FR;"2022-06-01 08:46:00";1234620;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCF096;N1FR;"2022-06-01 07:45:00";1234575;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCF164;N1FR;"2022-06-01 07:55:00";1234585;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCF425;N1FR;"2022-06-01 08:35:00";1234615;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCF566;N1FR;"2022-06-01 09:53:00";1234698;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCF567;N1FR;"2022-05-30 10:29:00";1233929;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCG307;N1FR;"2022-05-31 16:10:00";1234494;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCE812;N1FR;"2022-05-30 09:22:00";1233891;"APOTHEEK VELTEM PHARMA - LUC BIEN";STATIONSSTRAAT;37;;"VELTEM BEISEM";3020
+2CCF564;N1FR;"2022-06-01 09:52:00";1234696;"Verzekeringskantoor ZEKER BV";Warotstraat;50;;Winksele;3020
+2CCE788;N1FR;"2022-05-31 15:35:00";1234423;"Oleksandr Dukhno";Horenberg;9;;Overijse;3090
+2CCF646;N1FR;"2022-06-01 10:02:00";1234703;"Myriam Charlier";Ranklaan;12;;Overijse;3090
+2CCE569;N1FR;"2022-05-31 17:31:00";1234529;"Amke Wouters";Demerstraat;15;;Diest;3290
+2CCG303;N1FR;"2022-06-01 11:35:00";1234752;"Garage Gordons";"Sint Maurusweg";27;;Tienen;3300
+2CCF863;N1FR;"2022-06-01 10:33:00";1234723;"Garage Autokruispunt";Leuvensesteenweg;219;;Tielt-Winge;3390
+2CCF310;N1FR;"2022-06-01 09:24:00";1234664;"Delorge Hasselt";Herkenrodesingel;8;A;Hasselt;3500
+2CCG046;N1FR;"2022-06-01 11:02:00";1234739;"Rob Vanwezemael W & V -VERZEKERINGEN BVBA";"Fonteinstraat 43";a1;;HALEN;3545
+2CCF579;N1FR;"2022-06-01 09:52:00";1234697;"David Bernaards";Grotestraat;24;BU03;Genk;3600
+2CCG106;N1FR;"2022-06-01 11:09:00";1234741;"DNM Verzekeringen";Rijksweg;21;;Dilsen-Stokkem;3650
+2CCG349;N1FR;"2022-06-01 11:41:00";1234764;"Verzekeringen DNM";Rijksweg;21;;Dilsen-Stokkem;3650
+2CCF283;N1FR;"2022-06-01 09:20:00";1234660;"BV PAUL BEELEN";KEMPENSEWEG;2;"bus 6";ZUTENDAAL;3690
+2CCF278;N1FR;"2022-06-01 09:20:00";1234656;"RENAULT Bilzen Motors";Bremakker;41;;Bilzen;3740
+2CCF372;N1FR;"2022-06-01 09:33:00";1234677;"garage Rorox";Meershoven;134;;Bilzen;3740
+2CCE813;N1FR;"2022-05-25 17:07:00";1233759;"Mehmet Sürmeli";Krijtstraat;38;A;Riemst;3770
+2CCF786;N1FR;"2022-06-01 10:20:00";1234713;"Autohandel Jos Schreurs BV";Russelt;89;A;Wellen;3830
+2CCE720;N1FR;"2022-05-31 18:41:00";1234534;"Verzekeringen AREGO";"De Koel";10;;Pelt;3900
+2CCF280;N1FR;"2022-06-01 09:20:00";1234657;"Pierre Gielen";Hoevenstraat;38;;Pelt;3900
+2CCF308;N1FR;"2022-06-01 09:24:00";1234663;"Hasan Yilmaz";Stationsstraat;80;bus1;Leopoldsburg;3970
+2CCF317;N1FR;"2022-06-01 09:25:00";1234665;"Garage VANDERHEYDEN";"Route de Herbesthal";263;;EUPEN;4700
+2CCF991;N1FR;"2022-06-01 10:53:00";1234733;"AUTOHAUS Jost SPRL";"Malmedyer Strasse";175;;"Sankt Vith";4780
+2CCF809;N1FR;"2022-06-01 10:25:00";1234716;"GARAGE Linkweiler";"Malmedyer Strasse";103;;ST.VITH;4780
+2CCG034;N1FR;"2022-06-01 10:59:00";1234738;"Bureau Capassur srl Charlotte Darimont";"Rue Joseph Wauters";59;;Verviers;4800
+2CCE497;N1FR;"2022-05-31 17:05:00";1234518;"Fabian Liégeois";"Rue de Tamines(VEL)";2;;Sambreville;5060
+2CCF401;N1FR;"2022-06-01 09:36:00";1234681;"Isabelle Destrebecq";"Grand Rue";39;;Sivry-Rance;6470
+2CCE542;N1FR;"2022-05-31 17:20:00";1234525;"Daniel Van Luyten";"Rue de Beaumont(THL)";97;A;Thuin;6536
+1FYY651;N1FR;"2022-05-31 17:13:00";1234521;"Pieters Autos NV ";"Handelsstraat 2";;;Oostkamp;8020
+2CCF041;N1FR;"2022-06-01 08:46:00";1234619;"HET HOUTSCHE BV";STATIONSSTRAAT;70;;OOSTKAMP;8020
+2CCF321;N1FR;"2022-06-01 09:27:00";1234671;"VERZEKERINGSKANTOOR DEFEVER - FONTEYNE BV";"GISTELSE STEENWEG";542;;BRUGGE;8200
+2CCF742;N1FR;"2022-06-01 10:16:00";1234710;"Roberta Vonck";Kustlaan;119;;Brugge;8380
+2CCF933;N1FR;"2022-06-01 10:44:00";1234728;"Garage Coulembier dossier Karel Vandenbussche";Knokstraat;4;;Aalbeke;8511
+2CCF058;N1FR;"2022-06-01 08:48:00";1234623;"Top Motors Wevelgem";Kortrijkstraat;506;;Wevelgem;8560
+1YMG806;N1FR;"2022-05-31 21:07:00";1234538;"pieter vancraeynest";leieland;16;;wevelgem;8560
+2CCE809;N1FR;"2022-05-30 21:22:00";1234176;"garage Inghelmotors";Nijverheidsstraat;14;;Koekelare;8680
+2CCF514;N1FR;"2022-06-01 09:47:00";1234693;"Michel Lauria";Fortem;53;;Alveringem;8690
+2CCG268;N1FR;"2022-06-01 11:30:00";1234751;"Omayma Kasmi";"Juliaan Claerhoutstraat";7;0102;Wielsbeke;8710
+2CCE651;N1FR;"2022-05-31 17:51:00";1234531;"Tamara De Graeve";Molenkouter;5;;Wingene;8750
+2CCF021;N1FR;"2022-06-01 08:42:00";1234618;"DIETER ROBBENS";TEMPELIERSSTRAAT;5;;OOSTROZEBEKE;8780
+2CCF612;N1FR;"2022-06-01 09:58:00";1234700;"V.B. PARTS";"ABRAHAM HANSSTRAAT";7;;ROESELARE;8800
+2CCF939;N1FR;"2022-06-01 10:44:00";1234727;"Garage Foulon Garage Foulon";Meensesteenweg;674;;Roeselare;8800
+2CCF124;N1FR;"2022-06-01 08:59:00";1234630;"GARAGE VEREENOOGHE";ZWAANHOFWEG;8;;IEPER;8900
+2CCF964;N1FR;"2022-06-01 10:49:00";1234732;"Autobedrijf DE CUYPER";Ieperstraat;178;;WIJTSCHATE;8953
+2CCF197;N1FR;"2022-06-01 09:09:00";1234640;"Arife Aydin";Henleykaai;19;;Gent;9000
+2CCG478;N1FR;"2022-06-01 11:57:00";1234774;"Wilfried Dewaegenaere";Gaverlandstraat;38;A000;Gent;9031
+2CCF132;N1FR;"2022-06-01 09:00:00";1234631;"Garage Volvo ACG";Ijzerweglaan;101;;Gent;9050
+1UQF225;N1FR;"2022-06-01 10:04:00";1234705;"Fluvius ";"Brusselsesteenweg 199";;;Melle;9090
+2CCF450;N1FR;"2022-06-01 09:42:00";1234688;"Catarina Ribeiro Brandão";"Rudolf Esserstraat(MEL)";20;b206;Beveren;9120
+2CCE866;N1FR;"2022-06-01 08:57:00";1234628;"COPPIETERS HERMAN";BEERVELDESTRAAT;121;;LOKEREN;9160
+2CCF953;N1FR;"2022-06-01 10:45:00";1234729;"Mohammed Achahbar";Lokerhoutstraat;61;;Lokeren;9160
+2CCF540;N1FR;"2022-06-01 09:49:00";1234695;"Erwin Daelman";Plasstraat(SGW);2;;Sint-Gillis-Waas;9170
+2CCF993;N1FR;"2022-06-01 10:53:00";1234734;"VERZEKERINGSKANTOOR MARC SCHEIRE";WALDERDONK;28;;WACHTEBEKE;9185
+1BAU089;N1FR;"2022-05-31 17:20:00";1234524;"Erik-jan Naudts";"De klingestraat";46;;kemzeke;9190
+2CCE544;N1FR;"2022-05-31 17:20:00";1234526;"Garage De Rocker";Brussesesteenweg;89-91;;Wetteren;9230
+2CCG278;N1FR;"2022-06-01 11:30:00";1234750;"schampheleer Dirk Dirk Schampheleer";Hoogstraat;19/0001;;Schellebelle;9260
+2CCG196;N1FR;"2022-06-01 11:19:00";1234744;"GARAGE BAERT";AVELGEMSTRAAT;12;;KLUISBERGEN;9690
+2CCF217;N1FR;"2022-06-01 09:12:00";1234643;"Koen Deloof";Baarle-Frankrijkstraat;89;;Sint-Martens-Latem;9830
+2CCF807;N1FR;"2022-06-01 10:23:00";1234715;"Garage MIG Motors Evergem";"Jacques Paryslaan";18;;Evergem;9940
+2CCG900;N1FR;"2022-06-01 13:49:00";1234838;"Sultan Mesto";"Rue de Ribaucourt";8;0001;Molenbeek-Saint-Jean;1080
+2CCG509;N1FR;"2022-06-01 11:45:00";1234769;"FCA BELGIUM";"Avenue du Bourget";20;;Bruxelles;1130
+2CCG525;N1FR;"2022-06-01 11:41:00";1234765;"FCA BELGIUM";"Avenue du Bourget";20;;Bruxelles;1130
+2CCG530;N1FR;"2022-06-01 11:40:00";1234763;"FCA BELGIUM";"Avenue du Bourget";20;;Bruxelles;1130
+2CCG537;N1FR;"2022-06-01 11:40:00";1234762;"FCA BELGIUM";"Avenue du Bourget";20;;Bruxelles;1130
+2CCG507;N1FR;"2022-06-01 12:01:00";1234776;"Abdülkadir Karaböcek";"Rue de la Résistance";15;;Evere;1140
+2CCG772;N1FR;"2022-06-01 13:24:00";1234825;"Garage Louyet Wavre";"Rue Cerisier d'haine";50;;Wavre;1301
+2CCG502;N1FR;"2022-06-01 12:01:00";1234777;"KBC Devillé Sleewaegen t.a.v. Abdellaoui Mimoun";Ninoofsesteenweg;110;;Halle;1500
+2CCG755;N1FR;"2022-06-01 13:19:00";1234821;"ATHLON CAR LEASE BELGIUM";Peutiesesteenweg;115;;Machelen;1830
+2CCG782;N1FR;"2022-06-01 13:26:00";1234826;"ATHLON CAR LEASE BELGIUM";Peutiesesteenweg;115;;Machelen;1830
+2CCG921;N1FR;"2022-06-01 13:23:00";1234823;"ATHLON CAR LEASE BELGIUM";Peutiesesteenweg;115;;Machelen;1830
+2CCG514;N1FR;"2022-06-01 12:02:00";1234778;"bvba SIXT BELGIUM";LEUVENSESTEENWEG;36;;"ST. Stevens-Woluwe";1932
+2CCH027;N1FR;"2022-06-01 14:10:00";1234846;"Liesbeth Lievens";Kapittelbossen(HRT);11;;Herentals;2200
+2CCG947;N1FR;"2022-06-01 13:56:00";1234840;"Bram Van de Water";"Het Ven";16;;Lille;2275
+2CCG584;N1FR;"2022-06-01 12:15:00";1234786;"Geert Gadeyne";Jagersdreef;2;B000;Grobbendonk;2280
+2CCE030;N1FR;"2022-06-01 09:16:00";1234842;"Tanja De Nes";Albertstraat;24;;Niel;2845
+2CCD145;N1FR;"2022-06-01 12:21:00";1234788;"KBC Autolease NV ";"Prof. Van Overstraetenplein 5";;;Leuven;3000
+2CCF262;N1FR;"2022-06-01 13:00:00";1234814;"KBC Autolease NV ";"Prof. Van Overstraetenplein 5";;;Leuven;3000
+2CCF723;N1FR;"2022-06-01 13:36:00";1234828;"KBC Autolease NV ";"Prof. Van Overstraetenplein 5";;;Leuven;3000
+2CCG122;N1FR;"2022-06-01 12:22:00";1234789;"KBC Autolease NV ";"Prof. Van Overstraetenplein 5";;;Leuven;3000
+2CCG657;N1FR;"2022-06-01 12:36:00";1234798;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCG658;N1FR;"2022-06-01 12:36:00";1234804;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCG659;N1FR;"2022-06-01 12:36:00";1234799;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCG660;N1FR;"2022-06-01 12:36:00";1234805;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCG661;N1FR;"2022-06-01 12:36:00";1234801;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCG662;N1FR;"2022-06-01 12:36:00";1234807;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCG663;N1FR;"2022-06-01 12:36:00";1234803;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCG664;N1FR;"2022-06-01 12:36:00";1234802;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCG665;N1FR;"2022-06-01 12:36:00";1234808;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCG666;N1FR;"2022-06-01 12:36:00";1234800;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCG667;N1FR;"2022-06-01 12:36:00";1234806;"KBC Autolease";"Professor Van Overstraetenplein";5;;Leuven;3000
+2CCG519;N1FR;"2022-06-01 12:03:00";1234780;"Garage Segers Leuven";Brusselsesteenweg;29;;Herent;3020
+2CCG703;N1FR;"2022-06-01 12:55:00";1234813;"Garage Vanderborght // De La Croix Maximiliaan";Torenstraat;5;;Rotselaar;3110
+2CCG747;N1FR;"2022-06-01 13:11:00";1234818;"verzekering dnm";Rijksweg;21;;Dilsen-Stokkem;3650
+1NDD590;N1FR;"2022-06-01 12:28:00";1234792;"François Vandael";"Sint Martensstraat";25;;Neerpelt;3910
+2CCG894;N1FR;"2022-06-01 13:49:00";1234837;"Groep JAM .";Bruglaan;55;;Bree;3960
+2CCG968;N1FR;"2022-06-01 14:00:00";1234843;"VAN MOSSEL OPEL BREE x";MEEUWERKIEZEL;TZ;;BREE;3960
+2CCG864;N1FR;"2022-06-01 13:43:00";1234832;"KBC Verzekeringen Nelis & Winters BV";Pastorijstraat;2;B2;Peer;3990
+2CCG595;N1FR;"2022-06-01 12:17:00";1234787;"VERSICHERUNGEN ALOYS AACHEN PGMBH";"BRAUVENNSTRASSE, ALDRINGEN";27;;BURG-REULAND;4790
+2CCG888;N1FR;"2022-06-01 13:48:00";1234835;"Kelly Marlein";Sluizenstraat;216;;Bredene;8450
+2CCG880;N1FR;"2022-06-01 13:47:00";1234834;"GARAGE VOET";IJZERLAAN;2;;DIKSMUIDE;8600
+2CCG643;N1FR;"2022-06-01 12:33:00";1234797;"garage ae cars bv";rijksweg;4;;izegem;8870
+2CCG915;N1FR;"2022-06-01 13:49:00";1234836;"Dienst Voertuigen Fluvius";Brusselsesteenweg;199;;Melle;9090
+2CCG861;N1FR;"2022-06-01 13:43:00";1234830;"Garage Mertens Racz Joachim";Brandstraat;19;;Lokeren;9160
+2CCG766;N1FR;"2022-06-01 13:23:00";1234824;"schampheleer Dirk Dirk Schampheleer";Hoogstraat;19/0001;;Schellebelle;9260
+2CCH029;N1FR;"2022-06-01 14:10:00";1234847;"TAV ASSELBERGH KATRIEN";MEERSKANT;2;A;LAARNE;9270
+2CCG701;N1FR;"2022-06-01 12:54:00";1234812;"CONNY DE MEERSMAN DARIO VAN DE VOORDE";AARTSTRAAT;18;A;HERDERSEM;9310
 JOHN;P1FR;"2022-05-27 12:33:27";WCAFQHFJN;"Jonathan Marquet OTM-Zenith";"Groot-Bijgaardenstraat 500";;;Sint-Agatha-Berchem;1082
-2AFF007;N1FR;"2022-05-23 15:34:07";XJMXNRIFM;"Mathias Vantomme CRYNS CARROSSERIE KORTRIJK";"Hondschotestraat 98 ";;;KORTRIJK;8560
-1XRB425;N1FR;"2022-05-25 12:47:27";BSNQVJQRA;"Els Mostaert CRYNS CARROSSERIE ANTWERPEN";"Vredebaan 79C";;;Mortsel;2640
 1UKG229;N1FR;"2022-05-25 14:16:47";EQJXPDNBB;"Dominique Pierrequin Cryns Carrosserie Center Etterbeek";"Rue Baron Dhanis 70";;;ETTERBEEK;1040
-2BCU194;N1FR;"2022-05-11 11:35:00";742107;"Sylvain Da Cunha";Smaragdlaan;39;b008;Schaarbeek;1030
-1ABC456;N1FR;"2021-11-18 13:19:00";742072;"Impact Software NV ";"Schaliënstraat 5";;;Antwerpen;2000
-2DFG554;N1FR;"2021-11-18 14:49:00";742073;"Impact Software NV ";"Schaliënstraat 5";;;Antwerpen;2000
+1DEQ756;N1FR;"2022-05-30 13:56:40";OZUNESWFT;"Peter Jonckers CRYNS CARROSSERIE HASSELT";"Sint-Truidersteenweg 284";;;HASSELT;3500
+1WGX260;N1FR;"2022-05-30 15:48:36";NPJLOTKQO;"Arne Speelman-Rooms CRYNS CARROSSERIE GENT";"Begoniastraat 42/B";;;Eke-Nazareth;9810
+2BPN816;N1FR;"2022-05-31 10:14:25";MHXEMLBWL;"Mathias Vantomme CRYNS CARROSSERIE KORTRIJK";"Hondschotestraat 98 ";;;KORTRIJK;8560
+2BBY929;N1FR;"2022-05-31 10:19:40";OSUKOZZQZ;"Nathaniël Reudink CRYNS CARROSSERIE ANTWERPEN";"Vredebaan 79C";;;Mortsel;2640
+TXAB866;N1FR;"2022-05-31 12:44:59";QVTMYGGXV;"Els Mostaert CRYNS CARROSSERIE ANTWERPEN";"Vredebaan 79C";;;Mortsel;2640
+1WWK430;N1FR;"2022-06-01 11:49:13";EFVJXXPMY;"Els Mostaert CRYNS CARROSSERIE ANTWERPEN";"Vredebaan 79C";;;Mortsel;2640
