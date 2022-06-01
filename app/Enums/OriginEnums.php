@@ -5,5 +5,5 @@ namespace App\Enums;
 enum OriginEnums: string
 {
     case ESHOP = 'eshop';
-    case INMOTOV = 'inmotiv';
+    case INMOTIV = 'inmotiv';
 }

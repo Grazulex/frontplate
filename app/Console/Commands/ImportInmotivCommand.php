@@ -68,7 +68,7 @@ class ImportInmotivCommand extends Command
                             'created_at'    => $order['order_date'],
                             'reference'     => $order['plate_number'],
                             'type'          => $order['plate_type'],
-                            'origin'        => OriginEnums::INMOTOV->value,
+                            'origin'        => OriginEnums::INMOTIV->value,
                             'order_id'      => $order['order_id'],
                             'customer'      => $order['destination_name'],
                             'customer_key'  => $order['destination_key'],
