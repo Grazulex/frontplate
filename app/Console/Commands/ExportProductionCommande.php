@@ -46,6 +46,7 @@ class ExportProductionCommande extends Command
 
             $destinataires = explode(',',env('OTM_PRODUCTIONS_EMAILS'));
             foreach ($destinataires as $recipient) {
+                $this->info('Mail send to  '.$recipient);
                 Mail::to($recipient)->send(new MailProduction($production));
             }
 
