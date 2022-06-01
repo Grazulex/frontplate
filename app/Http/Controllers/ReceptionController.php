@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreReceptionRequest;
 use App\Http\Requests\UpdateReceptionRequest;
+use App\Models\Cash;
 use App\Models\Reception;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -29,7 +31,13 @@ class ReceptionController extends Controller
 
     public function store(StoreReceptionRequest $request): RedirectResponse
     {
-        Reception::create($request->validated());
+        $reception = Reception::create($request->validated());
+
+        Cash::create([
+            "user_id"   => User::find(1)->id,
+            "amount"    =>  "-".($reception->amount_cash/100),
+            "comment"   =>  "Reception ". $reception->created_at
+        ]);
 
         return redirect()
             ->route('receptions.index')

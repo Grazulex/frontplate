@@ -194,7 +194,7 @@
                 Cash ledgers
             </a>
             <a href="{{ route('receptions.index') }}">
-                <span class="las la-clipboard-list"></span>
+                <span class="las la-wallet"></span>
                 Reception
             </a>
             <a href="{{ route('closes.index') }}">
@@ -208,7 +208,7 @@
                 Cash Ledgers
             </a>
             <a href="{{ route('receptions.create') }}">
-                <span class="las la-creative-commons-nc-eu"></span>
+                <span class="las la-mail-bulk"></span>
                 Reception
             </a>
             <a href="{{ route('closes.create') }}">

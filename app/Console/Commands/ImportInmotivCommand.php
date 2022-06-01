@@ -34,11 +34,10 @@ class ImportInmotivCommand extends Command
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Content-Type' => 'application/x-www-form-urlencoded'
-            ])->asForm()->post('https://auth-test.evobel.net/auth/realms/12apps-test/protocol/openid-connect/token',
+            ])->asForm()->post(env('OTM_INMOTIV_ENDPOINT_TOKEN'),
                 [
-
-                        'client_id' => 'otm-test_3tzb8hnq7jyf',
-                        'client_secret' => '1mfN81A2YsN73Blv4frxw8KtxRtEQDT2',
+                        'client_id' => env('OTM_INMOTIV_CLIENT_ID'),
+                        'client_secret' => env('OTM_INMOTIV_SECRET_ID'),
                         'scope' => 'openid',
                         'grant_type' => 'client_credentials'
                 ]
@@ -49,7 +48,7 @@ class ImportInmotivCommand extends Command
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
                 'Authorization' => 'Bearer '.$token
-            ])->get('https://api-evoprd3.inmotiv.be/webdiv/orders/1.0');
+            ])->get(env('OTM_INMOTIV_ENDPOINT_API').'/webdiv/orders/1.0');
             if ($responseDatas->status() === 200) {
                 $orders = $responseDatas->json();
                 $orders = $orders['orders'];
