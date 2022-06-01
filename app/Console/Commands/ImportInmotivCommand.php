@@ -56,9 +56,13 @@ class ImportInmotivCommand extends Command
                     $plate = Plate::where(['order_id'=>$order['order_id']])->first();
                     if (!$plate) {
                         $isCod = false;
+                        $price = 0;
                         $this->info('Make new plate for order '.$order['order_id']);
                         if ($order['payment_method'] === 'COD') {
                             $isCod = true;
+                        }
+                        if (!empty($order['price'])) {
+                            $price = (float)(str_replace(',','.',$order['price']));
                         }
                         $plate = Plate::create([
                             'created_at'    => $order['order_date'],
@@ -68,7 +72,7 @@ class ImportInmotivCommand extends Command
                             'order_id'      => $order['order_id'],
                             'customer'      => $order['destination_name'],
                             'customer_key'  => $order['destination_key'],
-                            'amount'        => (float)(str_replace(',','.',$order['price'])),
+                            'amount'        => $price,
                             'is_cod'        => $isCod,
                             'datas'         => $order
                         ]);
