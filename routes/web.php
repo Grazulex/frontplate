@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CashController;
 use App\Http\Controllers\CloseController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PlateController;
 use App\Http\Controllers\ProductionController;
 use App\Http\Controllers\ReceptionController;
@@ -18,10 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return View('pages.index');
-});
-
+Route::get('/', [DashboardController::class, 'index'])->name('index');
 Route::get('/productions/print/{production}', [ProductionController::class, 'print'])->name('productions.print');
 Route::resource('plates', PlateController::class)->except(['create', 'store', 'edit', 'update']);
 Route::resource('productions', ProductionController::class)->only(['index', 'show']);

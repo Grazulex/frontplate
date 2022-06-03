@@ -2,13 +2,17 @@
 
 namespace App\Console\Commands;
 
+use App\Enums\OriginEnums;
 use App\Enums\TypeEnums;
+use App\Jobs\ProcessUpdateDateInMotiv;
+use App\Jobs\ProcessUpdateDateEshop;
 use App\Mail\Production as MailProduction;
 use App\Models\Plate;
 use App\Models\Production;
 use App\Services\ProductionService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
 
 class ExportProductionCommande extends Command
 {
@@ -39,6 +43,16 @@ class ExportProductionCommande extends Command
             foreach ($plates as $plate) {
                 $plate->production_id = $production->id;
                 $plate->update();
+                if ($plate->origin === OriginEnums::INMOTIV)
+                {
+                    $datas=['SEND_DATE'=>Carbon::now()->format('Y-m-d\TH:i:s')];
+                    //ProcessUpdateDateInMotiv::dispatch($plate, $datas);
+                } 
+                if ($plate->origin === OriginEnums::ESHOP)
+                {
+                    $datas=['SEND_DATE'=>Carbon::now()->format('Y-m-d\TH:i:s')];
+                    //ProcessUpdateDateEshop::dispatch($plate, $datas);
+                }                 
             }
 
             $productionService = new ProductionService($production);
