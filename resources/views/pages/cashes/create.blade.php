@@ -42,7 +42,7 @@
             </div>
 
             <label class="label block mb-2" for="amount">Amount</label>
-            <input value="{{ old('amount') }}" id="amount" name="amount" type="text" class="form-control" placeholder="Enter text the amount">
+            <input value="{{ old('amount') }}" id="amount" name="amount" type="text" class="form-control" placeholder="Enter the amount">
 
             <label class="label block mb-2" for="comment">Comment</label>            
             <textarea id="comment" name="comment" class="form-control" rows="5">{{ old('comment') }}</textarea>

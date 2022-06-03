@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CashController;
 use App\Http\Controllers\CloseController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PlateController;
 use App\Http\Controllers\ProductionController;
@@ -26,3 +27,4 @@ Route::resource('productions', ProductionController::class)->only(['index', 'sho
 Route::resource('cashes', CashController::class)->except(['show']);
 Route::resource('closes', CloseController::class)->except(['edit', 'update']);
 Route::resource('receptions', ReceptionController::class);
+Route::resource('customers', CustomerController::class);

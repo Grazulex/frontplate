@@ -160,6 +160,11 @@
             <span class="icon las la-cash-register"></span>
             <span class="title">Cash Ledger</span>
         </a>
+        <a href="#no-link" class="link" data-target="[data-menu=customer]" data-toggle="tooltip-menu"
+            data-tippy-content="Customer">
+            <span class="icon las la-users"></span>
+            <span class="title">Customers</span>
+        </a>
     </div>
 
     <div class="menu-detail" data-menu="plate">
@@ -214,6 +219,22 @@
             <a href="{{ route('closes.create') }}">
                 <span class="las la-balance-scale"></span>
                 Closing
+            </a>
+        </div>
+    </div>
+
+    <div class="menu-detail" data-menu="customer">
+        <div class="menu-detail-wrapper">
+            <h6 class="uppercase">Listing</h6>
+            <a href="{{ route('customers.index') }}">
+                <span class="las la-users"></span>
+                Customers
+            </a>
+            <hr>
+            <h6 class="uppercase">Inserts</h6>
+            <a href="{{ route('customers.create') }}">
+                <span class="las la-user"></span>
+                Customer
             </a>
         </div>
     </div>

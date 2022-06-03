@@ -74,7 +74,7 @@
                     </tr>
                 @empty   
                     <tr>
-                        <td colspan="8">{{ __('No playes found.') }}</td>
+                        <td colspan="8">{{ __('No plates found.') }}</td>
                     </tr>
  
                 @endforelse
