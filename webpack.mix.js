@@ -42,6 +42,7 @@ mix.combine(
         // Tippy.js
         "node_modules/@popperjs/core/dist/umd/popper.min.js",
         "node_modules/tippy.js/dist/tippy.umd.min.js",
+        "node_modules/alpinejs/dist/cdn.min.js",
     ],
     "public/js/vendor.js"
 );

@@ -28,7 +28,7 @@
                 class="card px-4 py-8 flex justify-center items-center text-center lg:transform hover:scale-110 hover:shadow-lg transition-transform duration-200">
                 <div>
                     <span class="text-primary text-5xl leading-none las la-industry"></span>
-                    <p class="mt-2">Plates in production (last 7 days)</p>
+                    <p class="mt-2">Plates poducted (last 7 days)</p>
                     <div class="text-primary mt-5 text-3xl leading-none">{{ $platesproducted7days }}</div>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                 class="card px-4 py-8 flex justify-center items-center text-center lg:transform hover:scale-110 hover:shadow-lg transition-transform duration-200">
                 <div>
                     <span class="text-primary text-5xl leading-none las la-industry"></span>
-                    <p class="mt-2">Plates in production (last 24 hours)</p>
+                    <p class="mt-2">Plates producted (last 24 hours)</p>
                     <div class="text-primary mt-5 text-3xl leading-none">{{ $platesproducted1days }}</div>
                 </div>
             </div>            
