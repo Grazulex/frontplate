@@ -12,16 +12,13 @@ class Test extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $production;
-
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(ModelsProduction $production)
+    public function __construct()
     {
-        $this->production = $production;
     }
 
     /**
@@ -31,6 +28,6 @@ class Test extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mails.test',['production_id' => $this->production->id]);
+        return $this->markdown('mails.test',[]);
     }
 }

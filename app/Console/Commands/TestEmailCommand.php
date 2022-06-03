@@ -6,7 +6,7 @@ use App\Enums\OriginEnums;
 use App\Enums\TypeEnums;
 use App\Jobs\ProcessUpdateDateInMotiv;
 use App\Jobs\ProcessUpdateDateEshop;
-use App\Mail\Production as MailProduction;
+use App\Mail\Test;
 use App\Models\Plate;
 use App\Models\Production;
 use App\Services\ProductionService;
@@ -40,7 +40,7 @@ class TestEmailCommande extends Command
         $destinataires = explode(',',env('OTM_PRODUCTIONS_EMAILS'));
         foreach ($destinataires as $recipient) {
             $this->info('Mail send to  '.$recipient);
-            Mail::to($recipient)->send(new MailProduction($production));
+            Mail::to($recipient)->send(new Test());
         }
     }
 }
