@@ -67,8 +67,7 @@
                                 @if (!$plate->production)
                                     @csrf
                                     @method('DELETE')
-                                    <a href="#user-delete-modal" class="border-solid border-2 border-danger rounded-full text-center p-2"><i class="las la-trash"></i></a>
-                                    <button type="submit" class="border-solid border-2 border-danger rounded-full text-center p-2"><i class="las la-trash"></i></button>
+                                    <button type="submit" class="border-solid border-2 border-danger rounded-full text-center p-2"><i class="las la-trash"></i></button>                                
                                 @endif
                             </form>
                         </td>
