@@ -14,7 +14,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
 use Carbon\Carbon;
 
-class TestEmailCommande extends Command
+class TestEmailCommand extends Command
 {
     /**
      * The name and signature of the console command.
