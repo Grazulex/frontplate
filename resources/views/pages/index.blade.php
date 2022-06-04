@@ -19,9 +19,9 @@
             <div
                 class="card px-4 py-8 flex justify-center items-center text-center lg:transform hover:scale-110 hover:shadow-lg transition-transform duration-200">
                 <div>
-                    <span class="text-primary text-5xl leading-none las la-car"></span>
+                    <span class="text-warning text-5xl leading-none las la-car"></span>
                     <p class="mt-2">Plates waiting</p>
-                    <div class="text-primary mt-5 text-3xl leading-none">{{ $platesWaiting }}</div>
+                    <div class="text-warning mt-5 text-3xl leading-none">{{ $platesWaiting }}</div>
                 </div>
             </div>
             <div
@@ -57,7 +57,15 @@
                     <p class="mt-2">Plates shipped (last 24 hours)</p>
                     <div class="text-primary mt-5 text-3xl leading-none">0</div>
                 </div>
-            </div>            
+            </div>   
+            <div
+                class="card px-4 py-8 flex justify-center items-center text-center lg:transform hover:scale-110 hover:shadow-lg transition-transform duration-200">
+                <div>
+                    <span class="text-danger text-5xl leading-none las la-plane-departure"></span>
+                    <p class="mt-2">Next Day off</p>
+                    <div class="text-danger mt-5 text-3xl leading-none">{{ $nextHoliday }}</div>
+                </div>
+            </div>                      
         </div>        
     </div>
 

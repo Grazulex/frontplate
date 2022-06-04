@@ -69,19 +69,19 @@
             <input value="{{ old('delivery_city') }}" id="delivery_city" name="delivery_city" type="text" class="form-control" placeholder="Enter city">
 
             <label class="custom-checkbox">
-                <input type="checkbox" id="is_delivery_grouped" name="is_delivery_grouped" value="true">
+                <input type="checkbox" id="is_delivery_grouped" name="is_delivery_grouped" value="1" {{ old('is_delivery_grouped') != 1 ?: 'checked' }}>
                 <span></span>
                 <span>Is delivery grouped ?</span>
             </label>
 
             <label class="custom-checkbox">
-                <input type="checkbox" id="is_delivery_bpost" name="is_delivery_bpost"  value="true" checked>
+                <input type="checkbox" id="is_delivery_bpost" name="is_delivery_bpost"  value="1"  {{ old('is_delivery_bpost') != 1 ?: 'checked' }}>
                 <span></span>
                 <span>Is delivery by Bpost ?</span>
             </label>
 
             <label class="custom-checkbox">
-                <input type="checkbox" id="is_inmotiv_customer" name="is_inmotiv_customer"  value="true">
+                <input type="checkbox" id="is_inmotiv_customer" name="is_inmotiv_customer"  value="1"  {{ old('is_inmotiv_customer') != 1 ?: 'checked' }}>
                 <span></span>
                 <span>Is Inmotiv Customer ?</span>
             </label>

@@ -13,6 +13,7 @@ use App\Services\ProductionService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
 use Carbon\Carbon;
+use App\Services\HolidayService;
 
 class ExportProductionCommande extends Command
 {
@@ -37,6 +38,13 @@ class ExportProductionCommande extends Command
      */
     public function handle()
     {
+
+        $holidays = HolidayService::get();
+        if ($holidays->isHoliday(Carbon::today()->month, Carbon::today()->day)) {
+            return false;
+            die();
+        }
+
         $plates = Plate::whereNull('production_id')->whereIn('type', array_column(TypeEnums::cases(), 'name'))->get();
         if ($plates->count() > 0) {
             $production = Production::create();

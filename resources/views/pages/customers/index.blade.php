@@ -40,17 +40,25 @@
                     <tr>
                         <td>{{ $customer->name }}</td>
                         <td>
-                           {{ $customer->delivery_type->name }}
+                            <div class="badge uppercase {{ $customer->delivery_type->name == App\Enums\DeliveryTypeEnums::BPOST->name ? 'badge_primary' : 'badge_secondary'  }}">
+                                {{ $customer->delivery_type->name }}
+                            </div>
                         </td>
-                        <td>{{ $customer->is_inmotiv_customer }}</td>
                         <td>
-                            {{ $customer->process_type->name }}
+                            @if ($customer->is_inmotiv_customer)
+                                <i class="las la-check-circle"></i>
+                            @endif
                         </td>
-                        <td>{{ $customer->process_file }}</td>
+                        <td>
+                            <div class="badge uppercase {{ $customer->process_type->name == App\Enums\ProcessTypeEnums::INMOTIV->name ? 'badge_primary' : 'badge_secondary'  }}">
+                                {{ $customer->process_type->name }}
+                            </div>
+                        </td>
                         <td>{{ $customer->process_file }}</td>
                         <td>
                             <form action="{{ route('customers.destroy', $customer->id) }}" method="POST">
                                 <a href="{{ route('customers.show', $customer->id) }}" class="border-solid border-2 border-success rounded-full text-center p-2"><i class="las la-eye"></i></a>
+                                <a href="{{ route('customers.edit', $customer->id) }}" class="border-solid border-2 border-primary rounded-full text-center p-2"><i class="las la-pen"></i></a>
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="border-solid border-2 border-danger rounded-full text-center p-2"><i class="las la-trash"></i></button>                                

@@ -8973,15 +8973,17 @@ Overlay
   color: rgb(var(--color-gray-600) / var(--tw-text-opacity)); }.text-primary{
   --tw-text-opacity: 1;
   color: rgb(2 132 199 / var(--tw-text-opacity));
-  color: rgb(var(--color-primary) / var(--tw-text-opacity)); }.text-gray-300{
+  color: rgb(var(--color-primary) / var(--tw-text-opacity)); }.text-warning{
+  --tw-text-opacity: 1;
+  color: rgb(255 193 7 / var(--tw-text-opacity)); }.text-danger{
+  --tw-text-opacity: 1;
+  color: rgb(220 53 69 / var(--tw-text-opacity)); }.text-gray-300{
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
   color: rgb(var(--color-gray-300) / var(--tw-text-opacity)); }.text-normal{
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
-  color: rgb(var(--color-text-normal) / var(--tw-text-opacity)); }.text-danger{
-  --tw-text-opacity: 1;
-  color: rgb(220 53 69 / var(--tw-text-opacity)); }.text-success{
+  color: rgb(var(--color-text-normal) / var(--tw-text-opacity)); }.text-success{
   --tw-text-opacity: 1;
   color: rgb(40 167 69 / var(--tw-text-opacity)); }.text-muted{
   --tw-text-opacity: 1;
