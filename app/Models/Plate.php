@@ -27,4 +27,8 @@ class Plate extends Model
         return $this->belongsTo(Production::class);
     }
 
+    public function incoming(): BelongsTo
+    {
+        return $this->belongsTo(Incoming::class);
+    }
 }

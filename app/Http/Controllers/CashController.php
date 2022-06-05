@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCashRequest;
 use App\Http\Requests\UpdateCashRequest;
 use App\Models\Cash;
-use App\Models\Close;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;

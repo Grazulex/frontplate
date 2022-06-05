@@ -57,25 +57,24 @@
                         <td>{{ $customer->process_file }}</td>
                         <td>
                             <form action="{{ route('customers.destroy', $customer->id) }}" method="POST">
-                                <a href="{{ route('customers.show', $customer->id) }}" class="border-solid border-2 border-success rounded-full text-center p-2"><i class="las la-eye"></i></a>
                                 <a href="{{ route('customers.edit', $customer->id) }}" class="border-solid border-2 border-primary rounded-full text-center p-2"><i class="las la-pen"></i></a>
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="border-solid border-2 border-danger rounded-full text-center p-2"><i class="las la-trash"></i></button>                                
+                                <button type="submit" class="border-solid border-2 border-danger rounded-full text-center p-2"><i class="las la-trash"></i></button>
                             </form>
                         </td>
                     </tr>
-                @empty   
+                @empty
                     <tr>
                         <td colspan="8">{{ __('No customers found.') }}</td>
                     </tr>
- 
+
                 @endforelse
             </tbody>
         </table>
         <div class="row py-2">
             <div class="col-md-12">
-                {{ $customers->links('pagination::tailwind') }} 
+                {{ $customers->links('pagination::tailwind') }}
             </div>
         </div>
     </div>

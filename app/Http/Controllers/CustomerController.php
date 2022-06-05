@@ -36,11 +36,6 @@ class CustomerController extends Controller
             ->withSuccess('Customer has been created successfully.');
     }
 
-    public function show(Customer $customer): View
-    {
-        return view('pages.customers.show', compact('customer'));
-    }
-
     public function edit(Customer $customer): View
     {
         return view('pages.customers.edit', compact('customer'));
@@ -53,14 +48,12 @@ class CustomerController extends Controller
             ->route('customers.index')
             ->withSuccess('Customer has been updated successfully.');
     }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Customer $customer)
+    public function destroy(Customer $customer): RedirectResponse
     {
-        //
+        $customer->delete();
+
+        return redirect()
+            ->route('customers.index')
+            ->withSuccess('Customer has been deleted successfully');
     }
 }

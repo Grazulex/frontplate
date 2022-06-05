@@ -180,7 +180,7 @@
             </a>
             <hr>
             <h6 class="uppercase">Inserts</h6>
-            <a href="{{ url('/ui/components/alerts') }}">
+            <a href="{{ route('incomings.create') }}">
                 <span class="las la-redo"></span>
                 Reception
             </a>
