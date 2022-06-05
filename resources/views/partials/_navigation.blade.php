@@ -179,13 +179,13 @@
                 Production files
             </a>
             <a href="{{ route('incomings.index') }}">
-                <span class="las la-industry"></span>
+                <span class="las la-shipping-fast"></span>
                 Incomings
             </a>
             <hr>
             <h6 class="uppercase">Inserts</h6>
             <a href="{{ route('incomings.create') }}">
-                <span class="las la-shipping-fast"></span>
+                <span class="las la-redo"></span>
                 Reception
             </a>
             <a href="{{ url('/ui/components/avatars') }}">
