@@ -33,7 +33,8 @@ class ImportInmotivCommand extends Command
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Content-Type' => 'application/x-www-form-urlencoded'
-            ])->asForm()->post(env('OTM_INMOTIV_ENDPOINT_TOKEN'),
+            ])->asForm()->post(
+                env('OTM_INMOTIV_ENDPOINT_TOKEN'),
                 [
                         'client_id' => env('OTM_INMOTIV_CLIENT_ID'),
                         'client_secret' => env('OTM_INMOTIV_SECRET_ID'),
@@ -61,7 +62,7 @@ class ImportInmotivCommand extends Command
                             $isCod = true;
                         }
                         if (!empty($order['price'])) {
-                            $price = (float)(str_replace(',','.',$order['price']));
+                            $price = (float)(str_replace(',', '.', $order['price']));
                         }
                         $plate = Plate::create([
                             'created_at'    => $order['order_date'],
@@ -71,7 +72,7 @@ class ImportInmotivCommand extends Command
                             'order_id'      => $order['order_id'],
                             'customer'      => $order['destination_name'],
                             'customer_key'  => $order['destination_key'],
-                            'amount'        => $price,
+                            'amount'        => $price*100,
                             'is_cod'        => $isCod,
                             'datas'         => $order
                         ]);

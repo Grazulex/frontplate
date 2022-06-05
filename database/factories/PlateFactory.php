@@ -28,7 +28,8 @@ class PlateFactory extends Factory
             'origin'        => $this->faker->randomElement(OriginEnums::cases()),
             'is_cod'        => $this->faker->boolean(),
             'is_rush'       => $this->faker->boolean(),
-            'production_id' => $this->faker->numberBetween(1,40),
+            'production_id' => $this->faker->numberBetween(1, 40),
+            'datas' => ['test'=> 'baba']
         ];
     }
 }

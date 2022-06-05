@@ -28,6 +28,7 @@
             <thead>
                 <tr>
                     <th class="ltr:text-left rtl:text-right uppercase">Created at</th>
+                    <th class="ltr:text-left rtl:text-right uppercase">Customer</th>
                     <th class="ltr:text-left rtl:text-right uppercase">Normal #</th>
                     <th class="ltr:text-left rtl:text-right uppercase">Normal €</th>
                     <th class="ltr:text-left rtl:text-right uppercase">COD #</th>
@@ -42,17 +43,18 @@
                 @forelse ($incomings as $incoming)
                     <tr>
                         <td>{{ $incoming->created_at }}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>{{ optional(incoming->close)->created_at }}</td>
+                        <td>{{ $incoming->customer->name }}</td>
+                        <td>{{ $incoming->normal_plates_count }}</td>
+                        <td><x-format-amount :amount="$incoming->normal_plates_sum" currency="eur" locale="fr_BE" /></td>
+                        <td>{{ $incoming->cod_plates_count }}</td>
+                        <td><x-format-amount :amount="$incoming->cod_plates_sum" currency="eur" locale="fr_BE" /></td>
+                        <td>{{ $incoming->rush_plates_count }}</td>
+                        <td><x-format-amount :amount="$incoming->rush_plates_sum" currency="eur" locale="fr_BE" /></td>
+                        <td>{{ optional($incoming->close)->created_at }}</td>
                         <td>
-                            <form action="{{ route('incomings.destroy', incoming>id) }}" method="POST">
-                                <a href="{{ route('incomings.show', incoming>id) }}" class="border-solid border-2 border-success rounded-full text-center p-2"><i class="las la-eye"></i></a>
-                                <a href="{{ route('incomings.edit', incoming>id) }}" class="border-solid border-2 border-primary rounded-full text-center p-2"><i class="las la-pen"></i></a>
+                            <form action="{{ route('incomings.destroy', $incoming->id) }}" method="POST">
+                                <a href="{{ route('incomings.show', $incoming->id) }}" class="border-solid border-2 border-success rounded-full text-center p-2"><i class="las la-eye"></i></a>
+                                <a href="{{ route('incomings.edit', $incoming->id) }}" class="border-solid border-2 border-primary rounded-full text-center p-2"><i class="las la-pen"></i></a>
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="border-solid border-2 border-danger rounded-full text-center p-2"><i class="las la-trash"></i></button>

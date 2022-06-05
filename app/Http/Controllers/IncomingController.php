@@ -16,6 +16,26 @@ class IncomingController extends Controller
     {
         $search = $request->get('search', '');
         $incomings = Incoming::search($search)
+            ->withCount(['plates as normal_plates_count'=> function ($query) {
+                $query->where('is_cod', false)
+                ->where('is_rush', false);
+            }])
+            ->withCount(['plates as cod_plates_count'=> function ($query) {
+                $query->where('is_cod', true);
+            }])
+            ->withCount(['plates as rush_plates_count'=> function ($query) {
+                $query->where('is_rush', true);
+            }])
+            ->withSum(['plates as normal_plates_sum'=> function ($query) {
+                $query->where('is_cod', false)
+                ->where('is_rush', false);
+            }], 'amount')
+            ->withSum(['plates as cod_plates_sum'=> function ($query) {
+                $query->where('is_cod', true);
+            }], 'amount')
+            ->withSum(['plates as rush_plates_sum'=> function ($query) {
+                $query->where('is_rush', true);
+            }], 'amount')
             ->latest()
             ->paginate(10);
 
@@ -29,15 +49,13 @@ class IncomingController extends Controller
         return view('pages.incomings.create', compact('customers'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreIncomingRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreIncomingRequest $request)
+    public function store(StoreIncomingRequest $request): RedirectResponse
     {
-        //
+        Incoming::create($request->validated());
+
+        return redirect()
+            ->route('incomings.index')
+            ->withSuccess('Incoming has been created successfully.');
     }
 
     /**

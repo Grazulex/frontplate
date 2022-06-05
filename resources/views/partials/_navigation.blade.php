@@ -178,6 +178,10 @@
                 <span class="las la-industry"></span>
                 Production files
             </a>
+            <a href="{{ route('incomings.index') }}">
+                <span class="las la-industry"></span>
+                Incomings
+            </a>
             <hr>
             <h6 class="uppercase">Inserts</h6>
             <a href="{{ route('incomings.create') }}">
