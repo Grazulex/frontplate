@@ -185,7 +185,7 @@
             <hr>
             <h6 class="uppercase">Inserts</h6>
             <a href="{{ route('incomings.create') }}">
-                <span class="las la-redo"></span>
+                <span class="las la-shipping-fast"></span>
                 Reception
             </a>
             <a href="{{ url('/ui/components/avatars') }}">
