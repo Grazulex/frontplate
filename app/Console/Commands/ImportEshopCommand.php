@@ -34,7 +34,7 @@ class ImportEshopCommand extends Command
             'Accept' => 'application/json',
             'Content-Type' => 'application/json'
         ])->get('https://arco.otm-shop.be/modules/otmprod/frontplate.php');
-        if ((int)$response->status() === 200) {
+        if ((int)$response->successful()) {
             $orders = $response->json();
             foreach ($orders as $order) {
                 $plate = Plate::where(['order_id'=>$order['order_id']])->first();
@@ -54,7 +54,7 @@ class ImportEshopCommand extends Command
                     ]);
                 }
             }
-        }else {
+        } else {
             $this->error($response->status());
         }
     }

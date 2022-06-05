@@ -40,8 +40,7 @@ class ProcessUpdateDateEshop implements ShouldQueue
             'Accept' => 'application/json',
             'Content-Type' => 'application/json'
         ])->get('https://arco.otm-shop.be/modules/otmprod/frontplatepatch.php?order_id='.$this->plate->order_id, $this->datas);
-        if ((int)$response->status() === 200) {
+        if ((int)$response->successful()) {
         }
-        
     }
 }

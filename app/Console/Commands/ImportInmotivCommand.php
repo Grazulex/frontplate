@@ -42,16 +42,16 @@ class ImportInmotivCommand extends Command
                         'grant_type' => 'client_credentials'
                 ]
             );
-        if ($response->status() === 200) {
+        if ($response->successful()) {
             $token = $response->json('access_token');
             $responseDatas = Http::withHeaders([
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
                 'Authorization' => 'Bearer '.$token
             ])->get(env('OTM_INMOTIV_ENDPOINT_API').'/webdiv/orders/1.0');
-            if ($responseDatas->status() === 200) {
-                $orders = $responseDatas->json();
-                $orders = $orders['orders'];
+            if ($responseDatas->successful()) {
+                $orders = $responseDatas->json('orders');
+                //$orders = $orders['orders'];
                 foreach ($orders as $order) {
                     $plate = Plate::where(['order_id'=>$order['order_id']])->first();
                     if (!$plate) {

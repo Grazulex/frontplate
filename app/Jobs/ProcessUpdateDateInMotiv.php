@@ -36,11 +36,11 @@ class ProcessUpdateDateInMotiv implements ShouldQueue
      */
     public function handle()
     {
-
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Content-Type' => 'application/x-www-form-urlencoded'
-            ])->asForm()->post(env('OTM_INMOTIV_ENDPOINT_TOKEN'),
+            ])->asForm()->post(
+                env('OTM_INMOTIV_ENDPOINT_TOKEN'),
                 [
                         'client_id' => env('OTM_INMOTIV_CLIENT_ID'),
                         'client_secret' => env('OTM_INMOTIV_SECRET_ID'),
@@ -48,15 +48,14 @@ class ProcessUpdateDateInMotiv implements ShouldQueue
                         'grant_type' => 'client_credentials'
                 ]
             );
-        if ($response->status() === 200) {
+        if ($response->successful()) {
             $token = $response->json('access_token');
             $responseDatas = Http::withHeaders([
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
                 'Authorization' => 'Bearer '.$token
             ])->patch(env('OTM_INMOTIV_ENDPOINT_API').'/webdiv/orders/1.0/'.$this->plate->order_id, $this->datas);
-            if ($responseDatas->status() === 200) {
-
+            if ($responseDatas->successful()) {
             }
         }
     }

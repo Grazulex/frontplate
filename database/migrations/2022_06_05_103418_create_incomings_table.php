@@ -14,7 +14,7 @@ return new class extends Migration {
     {
         Schema::create('incomings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('customer_id')->nullable()->constrained('customers')->onDelete('cascade');
+            $table->foreignId('customer_id')->constrained('customers')->onDelete('cascade');
             $table->foreignId('close_id')->nullable()->constrained('closes')->onDelete('cascade');
             $table->timestamps();
         });
