@@ -35,7 +35,7 @@ class CloseController extends Controller
 
         $receptions = Reception::whereNull('close_id')
             ->orderBy('created_at', 'desc')
-            ->get();            
+            ->get();
 
         return view('pages.closes.create', compact('cashes', 'receptions'));
     }
@@ -45,16 +45,14 @@ class CloseController extends Controller
         $close = Close::create($request->validated());
 
         $cashes = Cash::whereNull('close_id')->get();
-        foreach ($cashes as $cash)
-        {
+        foreach ($cashes as $cash) {
             $cash->close_id = $close->id;
             $cash->update();
         }
 
         $diff=0;
-        $receptions = Reception::whereNull('close_id')->get(); 
-        foreach ($receptions as $reception)
-        {
+        $receptions = Reception::whereNull('close_id')->get();
+        foreach ($receptions as $reception) {
             $diff=$diff - $reception->amount_cash;
             $reception->close_id = $close->id;
             $reception->update();
@@ -72,5 +70,4 @@ class CloseController extends Controller
     {
         return view('pages.closes.show', compact('close'));
     }
-
 }

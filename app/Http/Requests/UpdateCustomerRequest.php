@@ -13,7 +13,7 @@ class UpdateCustomerRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,20 @@ class UpdateCustomerRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'      => 'required',
+            'delivery_type'     => 'required',
+            'delivery_contact'   => 'sometimes',
+            'delivery_street'   => 'sometimes',
+            'delivery_number'   => 'sometimes',
+            'delivery_box'   => 'sometimes',
+            'delivery_zip'   => 'sometimes',
+            'delivery_city'   => 'sometimes',
+            'is_delivery_grouped'   => 'boolean',
+            'is_delivery_bpost'   => 'boolean',
+            'is_inmotiv_customer'   => 'boolean',
+            'process_type'   => 'required',
+            'location_report_type'   => 'required',
+            'process_file'   => 'sometimes',
         ];
     }
 }

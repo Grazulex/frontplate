@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreReceptionRequest;
 use App\Http\Requests\UpdateReceptionRequest;
-use App\Models\Cash;
 use App\Models\Reception;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use App\Models\Cash;
 
 class ReceptionController extends Controller
 {

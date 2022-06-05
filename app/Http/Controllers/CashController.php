@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCashRequest;
 use App\Http\Requests\UpdateCashRequest;
 use App\Models\Cash;
+use App\Models\Close;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -21,7 +22,6 @@ class CashController extends Controller
             ->with('user')
             ->with('close')
             ->paginate(10);
-
         return view('pages.cashes.index', compact('cashes', 'search'));
     }
 
@@ -39,7 +39,6 @@ class CashController extends Controller
         return redirect()
             ->route('cashes.index')
             ->withSuccess('Cash has been created successfully.');
-
     }
 
     public function edit(Cash $cash): View
@@ -65,6 +64,5 @@ class CashController extends Controller
         return redirect()
             ->route('cashes.index')
             ->withSuccess('Cashe has been deleted successfully');
-
     }
 }

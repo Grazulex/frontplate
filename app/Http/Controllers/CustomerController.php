@@ -34,43 +34,25 @@ class CustomerController extends Controller
         return redirect()
             ->route('customers.index')
             ->withSuccess('Customer has been created successfully.');
-
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Customer $customer)
+    public function show(Customer $customer): View
     {
-        //
+        return view('pages.customers.show', compact('customer'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Customer $customer)
+    public function edit(Customer $customer): View
     {
-        //
+        return view('pages.customers.edit', compact('customer'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateCustomerRequest  $request
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateCustomerRequest $request, Customer $customer)
+    public function update(UpdateCustomerRequest $request, Customer $customer): RedirectResponse
     {
-        //
+        $customer->update($request->validated());
+        return redirect()
+            ->route('customers.index')
+            ->withSuccess('Customer has been updated successfully.');
     }
-
     /**
      * Remove the specified resource from storage.
      *

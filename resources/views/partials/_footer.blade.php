@@ -1,11 +1,10 @@
 <!-- Footer -->
 <footer class="mt-auto">
     <div class="footer">
-        <span class='uppercase'>&copy; 2022 Yeti Themes</span>
+        <span class='uppercase'>&copy; 2022 JnkConsult BV</span>
         <nav>
-            <a href="mailto:Yeti Themes<info@yetithemes.net>?subject=Support">Support</a>
+            <a href="mailto:JNKConsult<admin@jnkconsult.be>?subject=Support FrontPlate">Support</a>
             <span class="divider">|</span>
-            <a href="http://yeti.yetithemes.net/docs" target="_blank">Docs</a>
         </nav>
     </div>
 </footer>

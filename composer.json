@@ -23,7 +23,8 @@
         "barryvdh/laravel-ide-helper": "^2.12",
         "beyondcode/laravel-query-detector": "^1.6",
         "nunomaduro/phpinsights": "*",
-        "phpunit/php-code-coverage": "^9.2"
+        "phpunit/php-code-coverage": "^9.2",
+        "friendsofphp/php-cs-fixer": "^3.8"
     },
     "autoload": {
         "psr-4": {

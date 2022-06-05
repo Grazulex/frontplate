@@ -44,11 +44,10 @@ class ProductionController extends Controller
         $productionService = new ProductionService($production);
         $productionService->makeCsv();
 
-        $callback = function() use ($filename) {
+        $callback = function () use ($filename) {
             readfile($filename);
         };
 
         return response()->stream($callback, 200, $headers);
     }
-
 }
