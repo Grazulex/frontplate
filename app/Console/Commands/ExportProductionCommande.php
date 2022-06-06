@@ -2,18 +2,19 @@
 
 namespace App\Console\Commands;
 
-use App\Enums\OriginEnums;
-use App\Enums\TypeEnums;
-use App\Jobs\ProcessUpdateDateInMotiv;
-use App\Jobs\ProcessUpdateDateEshop;
-use App\Mail\Production as MailProduction;
-use App\Models\Plate;
-use App\Models\Production;
-use App\Services\ProductionService;
-use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Mail;
 use Carbon\Carbon;
+use App\Models\Plate;
+use App\Enums\TypeEnums;
+use App\Enums\OriginEnums;
+use App\Models\Production;
+use Illuminate\Console\Command;
 use App\Services\HolidayService;
+use App\Services\ProductionService;
+use App\Jobs\ProcessUpdateDateEshop;
+use Illuminate\Support\Facades\Mail;
+use App\Jobs\ProcessUpdateDateInMotiv;
+use App\Jobs\ProcessInsertNotification;
+use App\Mail\Production as MailProduction;
 
 class ExportProductionCommande extends Command
 {
@@ -38,7 +39,6 @@ class ExportProductionCommande extends Command
      */
     public function handle()
     {
-
         $holidays = HolidayService::get();
         if ($holidays->isHoliday(Carbon::today()->month, Carbon::today()->day)) {
             return false;
@@ -51,22 +51,20 @@ class ExportProductionCommande extends Command
             foreach ($plates as $plate) {
                 $plate->production_id = $production->id;
                 $plate->update();
-                if ($plate->origin === OriginEnums::INMOTIV)
-                {
+                if ($plate->origin === OriginEnums::INMOTIV) {
                     $datas=['SEND_DATE'=>Carbon::now()->format('Y-m-d\TH:i:s')];
                     //ProcessUpdateDateInMotiv::dispatch($plate, $datas);
-                } 
-                if ($plate->origin === OriginEnums::ESHOP)
-                {
+                }
+                if ($plate->origin === OriginEnums::ESHOP) {
                     $datas=['SEND_DATE'=>Carbon::now()->format('Y-m-d\TH:i:s')];
                     //ProcessUpdateDateEshop::dispatch($plate, $datas);
-                }                 
+                }
             }
 
             $productionService = new ProductionService($production);
             $productionService->makeCsv();
 
-            $destinataires = explode(',',env('OTM_PRODUCTIONS_EMAILS'));
+            $destinataires = explode(',', env('OTM_PRODUCTIONS_EMAILS'));
             foreach ($destinataires as $recipient) {
                 $this->info('Mail send to  '.$recipient);
                 Mail::to($recipient)->send(new MailProduction($production));
@@ -74,7 +72,9 @@ class ExportProductionCommande extends Command
 
             $productionService->deleteCSV();
 
-
+            if (count($plates) > 0) {
+                ProcessInsertNotification::dispatch('Exportation CSV production Done. Find '.count($plates). ' plates');
+            }
         }
     }
 }

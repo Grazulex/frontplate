@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Enums\OriginEnums;
+use App\Jobs\ProcessInsertNotification;
 use App\Models\Plate;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
@@ -52,6 +53,7 @@ class ImportInmotivCommand extends Command
             if ($responseDatas->successful()) {
                 $orders = $responseDatas->json('orders');
                 //$orders = $orders['orders'];
+                $inserted=0;
                 foreach ($orders as $order) {
                     $plate = Plate::where(['order_id'=>$order['order_id']])->first();
                     if (!$plate) {
@@ -76,7 +78,11 @@ class ImportInmotivCommand extends Command
                             'is_cod'        => $isCod,
                             'datas'         => $order
                         ]);
+                        $inserted++;
                     }
+                }
+                if ($inserted > 0) {
+                    ProcessInsertNotification::dispatch('Import InMotiv Done. Find '.$inserted. ' orders');
                 }
             } else {
                 $this->error($response->status());

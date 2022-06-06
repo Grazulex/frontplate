@@ -2,10 +2,11 @@
 
 namespace App\Console\Commands;
 
-use App\Enums\OriginEnums;
 use App\Models\Plate;
+use App\Enums\OriginEnums;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
+use App\Jobs\ProcessInsertNotification;
 
 class ImportEshopCommand extends Command
 {
@@ -36,6 +37,7 @@ class ImportEshopCommand extends Command
         ])->get('https://arco.otm-shop.be/modules/otmprod/frontplate.php');
         if ((int)$response->successful()) {
             $orders = $response->json();
+            $inserted = 0;
             foreach ($orders as $order) {
                 $plate = Plate::where(['order_id'=>$order['order_id']])->first();
                 if (!$plate) {
@@ -52,7 +54,11 @@ class ImportEshopCommand extends Command
                         'is_cod'        => false,
                         'datas'         => $order
                     ]);
+                    $inserted++;
                 }
+            }
+            if ($inserted > 0) {
+                ProcessInsertNotification::dispatch('Import Eshop Done. Find '.$inserted. ' orders');
             }
         } else {
             $this->error($response->status());
