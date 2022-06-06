@@ -21,6 +21,11 @@ class Incoming extends Model
         return $this->belongsTo(Customer::class);
     }
 
+    public function close(): BelongsTo
+    {
+        return $this->belongsTo(Close::class);
+    }
+
     public function plates(): HasMany
     {
         return $this->hasMany(Plate::class);

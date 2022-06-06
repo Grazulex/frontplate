@@ -16,9 +16,9 @@ class FormatAmount extends Component
     private $currency;
     private $locale;
 
-    public function __construct(int $amount, string $currency, ?string $locale = null)
+    public function __construct(mixed $amount, string $currency, ?string $locale = null)
     {
-        $this->amount = $amount;
+        $this->amount = (int)$amount;
         $this->currency = $currency;
         $this->locale = $locale ?? app()->getLocale();
     }

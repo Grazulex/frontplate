@@ -50,7 +50,7 @@
                     <td><x-format-amount :amount="$cash->amount" currency="eur" locale="fr_BE" /></td>
                     <td>{{ $cash->comment }}</td>
                 </tr>
-            @empty   
+            @empty
                 <tr>
                     <td colspan="4">{{ __('No cashes found.') }}</td>
                 </tr>
@@ -73,14 +73,36 @@
                     <td><x-format-amount :amount="$reception->amount_cash" currency="eur" locale="fr_BE" /></td>
                     <td><x-format-amount :amount="$reception->amount_bbc" currency="eur" locale="fr_BE" /></td>
                 </tr>
-            @empty   
+            @empty
                 <tr>
                     <td colspan="3">{{ __('No receptions found.') }}</td>
                 </tr>
             @endforelse
             </tbody>
         </table>
-        <h4>Closes - Scans {{ $close->created_at}}</h4>
+        <h4>Closes - Incomings {{ $close->created_at}}</h4>
+        <table class="w-full table-fixed">
+            <thead>
+                <tr>
+                    <th class="ltr:text-left rtl:text-right uppercase">Date</th>
+                    <th class="ltr:text-left rtl:text-right uppercase">Customer</th>
+                    <th class="ltr:text-left rtl:text-right uppercase">Amount COD</th>
+                </tr>
+            </thead>
+            <tbody>
+            @forelse ($close->incomings as $incoming)
+                <tr>
+                    <td>{{ $incoming->created_at }}</td>
+                    <td>{{ $incoming->customer->name }}</td>
+                    <td><x-format-amount :amount="$incoming->cod_plates_sum" currency="eur" locale="fr_BE" /></td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="3">{{ __('No incomings found.') }}</td>
+                </tr>
+            @endforelse
+            </tbody>
+        </table>
     </div>
 
 @endsection

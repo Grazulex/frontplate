@@ -54,10 +54,11 @@
                         <td>
                             <form action="{{ route('incomings.destroy', $incoming->id) }}" method="POST">
                                 <a href="{{ route('incomings.show', $incoming->id) }}" class="border-solid border-2 border-success rounded-full text-center p-2"><i class="las la-eye"></i></a>
-                                <a href="{{ route('incomings.edit', $incoming->id) }}" class="border-solid border-2 border-primary rounded-full text-center p-2"><i class="las la-pen"></i></a>
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="border-solid border-2 border-danger rounded-full text-center p-2"><i class="las la-trash"></i></button>
+                                @if (!$incoming->close)
+                                    <button type="submit" class="border-solid border-2 border-danger rounded-full text-center p-2"><i class="las la-trash"></i></button>
+                                @endif
                             </form>
                         </td>
                     </tr>

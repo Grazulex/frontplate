@@ -19,7 +19,7 @@ class Close extends Model
     ];
 
     protected $searchableFields = ['*'];
-    
+
     public function cashes(): HasMany
     {
         return $this->hasMany(Cash::class);
@@ -30,4 +30,8 @@ class Close extends Model
         return $this->hasMany(Reception::class);
     }
 
+    public function incomings(): HasMany
+    {
+        return $this->hasMany(Incoming::class);
+    }
 }

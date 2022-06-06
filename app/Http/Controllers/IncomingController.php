@@ -16,6 +16,7 @@ class IncomingController extends Controller
     {
         $search = $request->get('search', '');
         $incomings = Incoming::search($search)
+            ->with(['customer', 'close'])
             ->withCount(['plates as normal_plates_count'=> function ($query) {
                 $query->where('is_cod', false)
                 ->where('is_rush', false);
@@ -51,11 +52,16 @@ class IncomingController extends Controller
 
     public function store(StoreIncomingRequest $request): RedirectResponse
     {
-        Incoming::create($request->validated());
+        $incoming = Incoming::firstOrCreate(array_merge($request->validated(), ['close_id'=>null]));
 
         return redirect()
-            ->route('incomings.index')
+            ->route('incomings.step2', $incoming)
             ->withSuccess('Incoming has been created successfully.');
+    }
+
+    public function step2(Incoming $incoming): View
+    {
+        return view('pages.incomings.step2', compact('incoming'));
     }
 
     /**
@@ -65,29 +71,6 @@ class IncomingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Incoming $Incoming)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Incoming  $incoming
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Incoming $incoming)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateIncomingRequest  $request
-     * @param  \App\Models\Incoming  $incoming
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateIncomingRequest $request, Incoming $incoming)
     {
         //
     }

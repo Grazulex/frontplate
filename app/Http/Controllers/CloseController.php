@@ -6,6 +6,7 @@ use App\Http\Requests\StoreCloseRequest;
 use App\Http\Requests\UpdateCloseRequest;
 use App\Models\Cash;
 use App\Models\Close;
+use App\Models\Incoming;
 use App\Models\Reception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -21,6 +22,7 @@ class CloseController extends Controller
             ->latest()
             ->withCount('cashes')
             ->withCount('receptions')
+            ->withCount('incomings')
             ->paginate(10);
 
         return view('pages.closes.index', compact('closes', 'search'));
@@ -37,7 +39,14 @@ class CloseController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
 
-        return view('pages.closes.create', compact('cashes', 'receptions'));
+        $incomings = Incoming::whereNull('close_id')
+            ->withSum(['plates as cod_plates_sum'=> function ($query) {
+                $query->where('is_cod', true);
+            }], 'amount')
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('pages.closes.create', compact('cashes', 'receptions', 'incomings'));
     }
 
     public function store(StoreCloseRequest $request): RedirectResponse
@@ -56,6 +65,18 @@ class CloseController extends Controller
             $diff=$diff - $reception->amount_cash;
             $reception->close_id = $close->id;
             $reception->update();
+        }
+
+        $incomings = Incoming::whereNull('close_id')
+            ->withSum(['plates as cod_plates_sum'=> function ($query) {
+                $query->where('is_cod', true);
+            }], 'amount')
+            ->get();
+
+        foreach ($incomings as $incoming) {
+            $diff=$diff + $incoming->cod_plates_sum;
+            $incoming->close_id = $close->id;
+            $incoming->update();
         }
 
         $close->diff = $diff;
