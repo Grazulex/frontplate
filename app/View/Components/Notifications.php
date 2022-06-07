@@ -2,8 +2,6 @@
 
 namespace App\View\Components;
 
-use App\Models\Notification;
-use Auth;
 use Illuminate\View\Component;
 
 class Notifications extends Component
@@ -25,8 +23,6 @@ class Notifications extends Component
      */
     public function render()
     {
-        $notifications = Notification::where('user_id', Auth::user())->latest()->get();
-
-        return view('components.notifications', compact('notifications'));
+        return view('components.notifications');
     }
 }

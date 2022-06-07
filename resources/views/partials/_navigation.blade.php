@@ -206,5 +206,7 @@
         </div>
     </div>
 </aside>
+@section('scripts')
 
+@endsection
 @include('partials._customizer')
