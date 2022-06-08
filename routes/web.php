@@ -8,6 +8,7 @@ use App\Http\Controllers\IncomingController;
 use App\Http\Controllers\PlateController;
 use App\Http\Controllers\ProductionController;
 use App\Http\Controllers\ReceptionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,5 +33,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('customers', CustomerController::class)->except(['show']);
     Route::get('/incomings/step2/{incoming}', [IncomingController::class, 'step2'])->name('incomings.step2');
     Route::resource('incomings', IncomingController::class)->except(['edit', 'update']);
+    Route::resource('users', UserController::class);
 });
 require __DIR__.'/auth.php';

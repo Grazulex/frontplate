@@ -35,8 +35,10 @@ class ProcessInsertNotification implements ShouldQueue
      */
     public function handle()
     {
-        if (!$users = $this->users) {
+        if (empty($this->users)) {
             $users = User::all();
+        } else {
+            $users = $this->users;
         }
         foreach ($users as $user) {
             Notification::create([

@@ -14,6 +14,6 @@ class AdminUserSeeder extends Seeder
      */
     public function run()
     {
-        User::create(['name'=>'Jean-Marc Strauven', 'email'=>'jean-marc.strauven@otmgroup.be', 'email_verified_at'=> now(),    'password'=> bcrypt('Katleen2229!')]);
+        User::create(['name'=>'Jean-Marc Strauven', 'email'=>'jean-marc.strauven@otmgroup.be', 'email_verified_at'=> now(), 'password'=> bcrypt('Katleen2229!')]);
     }
 }

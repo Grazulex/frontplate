@@ -5,7 +5,7 @@
     <button type="button" class="menu-toggler la la-bars" data-toggle="menu"></button>
 
     <!-- Brand -->
-    <span class="brand">FrontPlate</span>
+    <span class="brand">{{ config('app.name') }}</span>
 
     <!-- Search -->
     <form class="hidden md:block ltr:ml-10 rtl:mr-10" action="#">
@@ -67,12 +67,12 @@
         <div class="dropdown">
             <button class="flex items-center ltr:ml-4 rtl:mr-4" data-toggle="custom-dropdown-menu"
                 data-tippy-arrow="true" data-tippy-placement="bottom-end">
-                <span class="avatar">JD</span>
+                <span class="avatar">{{ Auth::user()->initials() }}</span>
             </button>
             <div class="custom-dropdown-menu w-64">
                 <div class="p-5">
-                    <h5 class="uppercase">John Doe</h5>
-                    <p>Editor</p>
+                    <h5 class="uppercase">{{ Auth::user()->name }}</h5>
+                    <p>Admin</p>
                 </div>
                 <hr>
                 <div class="p-5">
@@ -108,10 +108,10 @@
     <div class="menu-items">
         <div class="menu-header hidden">
             <a href="#" class="flex items-center mx-8 mt-8">
-                <span class="avatar w-16 h-16">JD</span>
+                <span class="avatar w-16 h-16">{{ Auth::user()->initials() }}</span>
                 <div class="ltr:ml-4 rtl:mr-4 ltr:text-left rtl:text-right">
-                    <h5>John Doe</h5>
-                    <p class="mt-2">Editor</p>
+                    <h5>{{ Auth::user()->name }}</h5>
+                    <p class="mt-2">Admin</p>
                 </div>
             </a>
             <hr class="mx-8 my-4">
@@ -133,6 +133,11 @@
             data-tippy-content="Customer">
             <span class="icon las la-users"></span>
             <span class="title">Customers</span>
+        </a>
+        <a href="#no-link" class="link" data-target="[data-menu=user]" data-toggle="tooltip-menu"
+            data-tippy-content="User">
+            <span class="icon las la-user-tie"></span>
+            <span class="title">Users</span>
         </a>
     </div>
 
@@ -208,6 +213,22 @@
             <a href="{{ route('customers.create') }}">
                 <span class="las la-user"></span>
                 Customer
+            </a>
+        </div>
+    </div>
+
+    <div class="menu-detail" data-menu="user">
+        <div class="menu-detail-wrapper">
+            <h6 class="uppercase">Listing</h6>
+            <a href="{{ route('users.index') }}">
+                <span class="las la-user-tie"></span>
+                Users
+            </a>
+            <hr>
+            <h6 class="uppercase">Inserts</h6>
+            <a href="{{ route('users.create') }}">
+                <span class="las la-user-tie"></span>
+                User
             </a>
         </div>
     </div>
