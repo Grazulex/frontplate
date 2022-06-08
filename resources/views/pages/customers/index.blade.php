@@ -31,7 +31,6 @@
                     <th class="ltr:text-left rtl:text-right uppercase">delivery type</th>
                     <th class="ltr:text-left rtl:text-right uppercase">is inmotiv Customer ?</th>
                     <th class="ltr:text-left rtl:text-right uppercase">process type</th>
-                    <th class="ltr:text-left rtl:text-right uppercase">process file</th>
                     <th class="ltr:text-left rtl:text-right uppercase">Action</th>
                 </tr>
             </thead>
@@ -54,9 +53,11 @@
                                 {{ $customer->process_type->name }}
                             </div>
                         </td>
-                        <td>{{ $customer->process_file }}</td>
                         <td>
                             <form action="{{ route('customers.destroy', $customer->id) }}" method="POST">
+                                @if ($customer->process_file)
+                                    <a href="{{ route('customers.process', $customer->id) }}" class="border-solid border-2 border-success rounded-full text-center p-2"><i class="las la-file-pdf"></i></a>
+                                @endif
                                 <a href="{{ route('customers.edit', $customer->id) }}" class="border-solid border-2 border-primary rounded-full text-center p-2"><i class="las la-pen"></i></a>
                                 @csrf
                                 @method('DELETE')
@@ -66,7 +67,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="8">{{ __('No customers found.') }}</td>
+                        <td colspan="7">{{ __('No customers found.') }}</td>
                     </tr>
 
                 @endforelse

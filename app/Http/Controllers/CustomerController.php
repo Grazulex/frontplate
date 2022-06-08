@@ -8,6 +8,7 @@ use App\Models\Customer;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class CustomerController extends Controller
 {
@@ -46,6 +47,27 @@ class CustomerController extends Controller
     public function edit(Customer $customer): View
     {
         return view('pages.customers.edit', compact('customer'));
+    }
+
+    public function process(Customer $customer): StreamedResponse
+    {
+        $filename = $customer->id.'.pdf';
+
+        //dd('storage/uploads/process/'.$filename);
+
+        $headers = array(
+            "Content-type"        => "application/pdf",
+            "Content-Disposition" => "attachment; filename=$filename",
+            "Pragma"              => "no-cache",
+            "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+            "Expires"             => "0"
+        );
+
+        $callback = function () use ($filename) {
+            readfile('storage/uploads/process/'.$filename);
+        };
+
+        return response()->stream($callback, 200, $headers);
     }
 
     public function update(UpdateCustomerRequest $request, Customer $customer): RedirectResponse

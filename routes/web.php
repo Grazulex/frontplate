@@ -30,6 +30,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('cashes', CashController::class)->except(['show']);
     Route::resource('closes', CloseController::class)->except(['edit', 'update']);
     Route::resource('receptions', ReceptionController::class);
+    Route::get('/customers/process/{customer}', [CustomerController::class, 'process'])->name('customers.process');
     Route::resource('customers', CustomerController::class)->except(['show']);
     Route::get('/incomings/step2/{incoming}', [IncomingController::class, 'step2'])->name('incomings.step2');
     Route::resource('incomings', IncomingController::class)->except(['edit', 'update']);
