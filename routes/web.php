@@ -33,6 +33,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('customers', CustomerController::class)->except(['show']);
     Route::get('/incomings/step2/{incoming}', [IncomingController::class, 'step2'])->name('incomings.step2');
     Route::resource('incomings', IncomingController::class)->except(['edit', 'update']);
+    Route::get('/users/{user}/password', [UserController::class, 'editPassword'])->name('users.edit.password');
+    Route::post('/users/{user}/password', [UserController::class, 'updatePassword'])->name('users.update.password');
     Route::resource('users', UserController::class);
 });
 require __DIR__.'/auth.php';

@@ -76,11 +76,11 @@
                 </div>
                 <hr>
                 <div class="p-5">
-                    <a href="#" class="flex items-center text-normal hover:text-primary">
+                    <a href="{{ route('users.edit', Auth::user()) }}" class="flex items-center text-normal hover:text-primary">
                         <span class="la la-user-circle text-2xl leading-none ltr:mr-2 rtl:ml-2"></span>
                         View Profile
                     </a>
-                    <a href="#" class="flex items-center text-normal hover:text-primary mt-5">
+                    <a href="{{ route('users.edit.password', Auth::user()) }}" class="flex items-center text-normal hover:text-primary mt-5">
                         <span class="la la-key text-2xl leading-none ltr:mr-2 rtl:ml-2"></span>
                         Change Password
                     </a>

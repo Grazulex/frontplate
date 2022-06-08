@@ -32,13 +32,11 @@
         <form action="{{ route('users.store') }}" method="POST" class="relative mt-5">
             @csrf
             <div class="flex mb-2">
-                <div class="w-full">
+                <div class="w-1/2 mr-2">
                     <label class="label block mb-2" for="name">Name</label>
                     <input value="{{ old('name') }}" id="name" name="name" type="text" class="form-control" placeholder="Enter user name" required>
                 </div>
-            </div>
-            <div class="flex mb-2">
-                <div class="w-full">
+                <div class="w-1/2 mr-2">
                     <label class="label block mb-2" for="email">email</label>
                     <input value="{{ old('email') }}" id="email" name="email" type="email" class="form-control" placeholder="Enter user email" required>
                 </div>

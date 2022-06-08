@@ -13,7 +13,7 @@
     </section>
 
     <div class="card p-5">
-        <h3>Users - Edit {{ $user->name}}</h3>
+        <h3>Users - Edit {{ $user->name }}</h3>
 
         @if ($errors->any())
             <div>
@@ -33,13 +33,11 @@
             @csrf
             @method('PUT')
             <div class="flex mb-2">
-                <div class="w-full">
+                <div class="w-1/2 mr-2">
                     <label class="label block mb-2" for="name">Name</label>
                     <input value="{{ old('name', $user->name) }}" id="name" name="name" type="text" class="form-control" placeholder="Enter user name" required>
                 </div>
-            </div>
-            <div class="flex mb-2">
-                <div class="w-full">
+                <div class="w-1/2 mr-2">
                     <label class="label block mb-2" for="email">email</label>
                     <input value="{{ old('email', $user->email) }}" id="email" name="email" type="email" class="form-control" placeholder="Enter user email" required>
                 </div>

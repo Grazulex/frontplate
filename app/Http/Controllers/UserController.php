@@ -55,6 +55,28 @@ class UserController extends Controller
             ->withSuccess('User has been updated successfully.');
     }
 
+    public function editPassword(User $user): View
+    {
+        return view('pages.users.edit-password', compact('user'));
+    }
+
+    public function updatePassword(Request $request, User $user):  RedirectResponse
+    {
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|string|min:6|same:confirm_password',
+            'confirm_password' => 'required',
+          ]);
+        if (!\Hash::check($request->current_password, $user->password)) {
+            return back()->withErrors('Current password does not match!');
+        }
+        $user->password = \Hash::make($request->new_password);
+        $user->save();
+
+        return redirect()
+            ->route('users.index')
+            ->withSuccess('User password has been updated successfully.');
+    }
 
     public function destroy(User $user): RedirectResponse
     {
