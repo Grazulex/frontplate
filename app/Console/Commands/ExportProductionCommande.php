@@ -52,8 +52,8 @@ class ExportProductionCommande extends Command
                 $plate->production_id = $production->id;
                 $plate->update();
                 if ($plate->origin === OriginEnums::INMOTIV) {
-                    $datas=['SEND_DATE'=>Carbon::now()->format('Y-m-d\TH:i:s')];
-                    //ProcessUpdateDateInMotiv::dispatch($plate, $datas);
+                    $datas=['PRODUCTION_DATE'=>Carbon::now()->format('Y-m-d\TH:i:s')];
+                    ProcessUpdateDateInMotiv::dispatch($plate, $datas);
                 }
                 if ($plate->origin === OriginEnums::ESHOP) {
                     $datas=['SEND_DATE'=>Carbon::now()->format('Y-m-d\TH:i:s')];
