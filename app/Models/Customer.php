@@ -15,19 +15,19 @@ class Customer extends Model
     use Searchable;
 
     protected $fillable = [
-        'name', 
-        'delivery_type', 
-        'delivery_contact', 
-        'delivery_street', 
-        'delivery_number', 
-        'delivery_box', 
-        'delivery_zip', 
-        'delivery_city', 
-        'is_delivery_grouped', 
-        'is_delivery_bpost', 
-        'is_inmotiv_customer', 
-        'process_type', 
-        'process_file', 
+        'name',
+        'delivery_type',
+        'delivery_contact',
+        'delivery_street',
+        'delivery_number',
+        'delivery_box',
+        'delivery_zip',
+        'delivery_city',
+        'is_delivery_grouped',
+        'is_delivery_bpost',
+        'is_inmotiv_customer',
+        'process_type',
+        'process_file',
         'location_report_type'
     ];
 
@@ -41,5 +41,4 @@ class Customer extends Model
     ];
 
     protected $searchableFields = ['*'];
-
 }

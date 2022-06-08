@@ -39,12 +39,14 @@ codestyle:
   dependencies: []
   script:
   - phpcs --standard=PSR2 --extensions=php --ignore=app/Support/helpers.php app
+  allow_failure: true
 quality:
   dependencies:
   - composer
   script:
   - php artisan insights --no-interaction --min-quality=85 --min-complexity=85 --min-architecture=95
     --min-style=90
+  allow_failure: true
 insights:
   dependencies:
   - composer
