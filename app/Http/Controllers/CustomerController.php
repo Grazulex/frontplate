@@ -29,7 +29,14 @@ class CustomerController extends Controller
 
     public function store(StoreCustomerRequest $request): RedirectResponse
     {
-        Customer::create($request->validated());
+        $customer = Customer::create($request->validated());
+
+        if ($request->file()) {
+            $fileName = $customer->id.'.'.$request->file('process_file')->getClientOriginalExtension();
+            $filePath = $request->file('process_file')->storeAs('uploads/process', $fileName, 'public');
+            $customer->process_file = '/storage/' . $filePath;
+            $customer->save();
+        }
 
         return redirect()
             ->route('customers.index')
@@ -44,6 +51,13 @@ class CustomerController extends Controller
     public function update(UpdateCustomerRequest $request, Customer $customer): RedirectResponse
     {
         $customer->update($request->validated());
+
+        if ($request->file()) {
+            $fileName = $customer->id.'.'.$request->file('process_file')->getClientOriginalExtension();
+            $filePath = $request->file('process_file')->storeAs('uploads/process', $fileName, 'public');
+            $customer->process_file = '/storage/' . $filePath;
+            $customer->save();
+        }
         return redirect()
             ->route('customers.index')
             ->withSuccess('Customer has been updated successfully.');

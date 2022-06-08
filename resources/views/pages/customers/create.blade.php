@@ -29,7 +29,7 @@
             </div>
         @endif
 
-        <form action="{{ route('customers.store') }}" method="POST" class="relative mt-5">
+        <form action="{{ route('customers.store') }}" method="POST" enctype="multipart/form-data" class="relative mt-5">
             @csrf
             <div class="flex mb-2">
                 <div class="w-full">
@@ -104,6 +104,12 @@
                         <span></span>
                         <span>Is Inmotiv Customer ?</span>
                     </label>
+                </div>
+            </div>
+            <div class="flex mb-2">
+                <div class="w-full mr-2">
+                    <label class="label block mb-2" for="process_file">Process file</label>
+                        <input value="{{ old('process_file') }}" id="process_file" name="process_file" type="file" class="form-control">
                 </div>
             </div>
             <div class="flex mb-2">

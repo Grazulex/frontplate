@@ -37,7 +37,7 @@ class StoreCustomerRequest extends FormRequest
             'is_inmotiv_customer'   => 'boolean',
             'process_type'   => 'required',
             'location_report_type'   => 'required',
-            'process_file'   => 'sometimes',
+            'process_file'   => 'sometimes|mimes:pdf',
         ];
     }
 }
