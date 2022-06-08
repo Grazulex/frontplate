@@ -78,13 +78,15 @@ phpunit:
 #  environment:
 #    name: development
 #    url: https://dev.apifulldoc.com
-#deploy_prod:
-#  stage: deploy
-#  script:
-#  - curl https://forge.laravel.com/servers/546270/sites/1650240/deploy/http?token=P0haBka8OUdjLTPVs7ZRJmxc3r2I3ju7YnqZH2r8
-#  - exit 0
-#  only:
-#  - master
-#  environment:
-#    name: production
-#    url: https://api.apifulldoc.com
+deploy_prod:
+  dependencies:
+  - npm
+  stage: deploy
+  script:
+  - curl https://forge.laravel.com/servers/546270/sites/1660819/deploy/http?token=7tM5YBNLvMWaO425AQKSOt5Dd8CcG2g0ABXLbsQY
+  - exit 0
+  only:
+  - master
+  environment:
+    name: production
+    url: https://frontpage.jnkconsult.be
