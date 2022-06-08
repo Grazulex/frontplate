@@ -12,7 +12,7 @@ class NotificationController extends Controller
 {
     public function index(): JsonResponse
     {
-        $notifications = Notification::select(['created_at', 'content'])->where('user_id', Auth::user())->latest()->take(5)->get();
+        $notifications = Notification::select(['created_at', 'content'])->where('user_id', Auth::user()->id)->latest()->take(5)->get();
 
         return Response()->Json($notifications);
     }
