@@ -10,9 +10,9 @@ use Illuminate\Http\JsonResponse;
 
 class NotificationController extends Controller
 {
-    public function index(): JsonResponse
+    public function index(Request $request): JsonResponse
     {
-        $notifications = Notification::select(['created_at', 'content'])->where('user_id', Auth::user()->id)->latest()->take(5)->get();
+        $notifications = Notification::select(['created_at', 'content'])->where('user_id', $request->input('id'))->latest()->take(5)->get();
 
         return Response()->Json($notifications);
     }

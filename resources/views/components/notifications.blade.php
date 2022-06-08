@@ -6,7 +6,7 @@
         count: 0,
         items: [],
         getNotifications() {
-            fetch('/api/notifications', {
+            fetch('/api/notifications?id='+{{ Auth::user()->id }}, {
                 method: 'GET',
             })
             .then((response) => response.json())
