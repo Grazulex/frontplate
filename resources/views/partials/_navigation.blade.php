@@ -87,10 +87,16 @@
                 </div>
                 <hr>
                 <div class="p-5">
-                    <a href="#" class="flex items-center text-normal hover:text-primary">
-                        <span class="la la-power-off text-2xl leading-none ltr:mr-2 rtl:ml-2"></span>
-                        Logout
-                    </a>
+                    <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                        <a
+                            href="route('logout')"
+                            onclick="event.preventDefault();this.closest('form').submit();"
+                            class="flex items-center text-normal hover:text-primary">
+                                <span class="la la-power-off text-2xl leading-none ltr:mr-2 rtl:ml-2"></span>
+                                Logout
+                        </a>
+                    </form>
                 </div>
             </div>
         </div>

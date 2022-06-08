@@ -21,13 +21,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DashboardController::class, 'index'])->name('index');
-Route::get('/productions/print/{production}', [ProductionController::class, 'print'])->name('productions.print');
-Route::resource('plates', PlateController::class)->except(['create', 'store', 'edit', 'update']);
-Route::resource('productions', ProductionController::class)->only(['index', 'show']);
-Route::resource('cashes', CashController::class)->except(['show']);
-Route::resource('closes', CloseController::class)->except(['edit', 'update']);
-Route::resource('receptions', ReceptionController::class);
-Route::resource('customers', CustomerController::class)->except(['show']);
-Route::get('/incomings/step2/{incoming}', [IncomingController::class, 'step2'])->name('incomings.step2');
-Route::resource('incomings', IncomingController::class)->except(['edit', 'update']);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('index');
+    Route::get('/productions/print/{production}', [ProductionController::class, 'print'])->name('productions.print');
+    Route::resource('plates', PlateController::class)->except(['create', 'store', 'edit', 'update']);
+    Route::resource('productions', ProductionController::class)->only(['index', 'show']);
+    Route::resource('cashes', CashController::class)->except(['show']);
+    Route::resource('closes', CloseController::class)->except(['edit', 'update']);
+    Route::resource('receptions', ReceptionController::class);
+    Route::resource('customers', CustomerController::class)->except(['show']);
+    Route::get('/incomings/step2/{incoming}', [IncomingController::class, 'step2'])->name('incomings.step2');
+    Route::resource('incomings', IncomingController::class)->except(['edit', 'update']);
+});
+require __DIR__.'/auth.php';
