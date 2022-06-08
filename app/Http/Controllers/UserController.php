@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Jobs\ProcessInsertNotification;
 use App\Jobs\ProcessSendWelcomeEmail;
 use App\Models\User;
@@ -40,6 +41,20 @@ class UserController extends Controller
             ->route('users.index')
             ->withSuccess('User has been created successfully.');
     }
+
+    public function edit(User $user): View
+    {
+        return view('pages.users.edit', compact('user'));
+    }
+
+    public function update(UpdateUserRequest $request, User $user): RedirectResponse
+    {
+        $user->update($request->validated());
+        return redirect()
+            ->route('users.index')
+            ->withSuccess('User has been updated successfully.');
+    }
+
 
     public function destroy(User $user): RedirectResponse
     {
