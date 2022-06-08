@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUserRequest;
+use App\Jobs\ProcessInsertNotification;
+use App\Jobs\ProcessSendWelcomeEmail;
 use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Hash;
+use Str;
 
 class UserController extends Controller
 {
@@ -23,6 +28,17 @@ class UserController extends Controller
     public function create(): View
     {
         return view('pages.users.create');
+    }
+
+    public function store(StoreUserRequest $request): RedirectResponse
+    {
+        $user = User::create(array_merge($request->validated(), ['password'=>Hash::make(Str::random(10))]));
+        ProcessInsertNotification::dispatch('Your new account is made. Welcome', [$user]);
+        ProcessSendWelcomeEmail::dispatch($user);
+
+        return redirect()
+            ->route('users.index')
+            ->withSuccess('User has been created successfully.');
     }
 
     public function destroy(User $user): RedirectResponse
