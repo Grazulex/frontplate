@@ -53,12 +53,10 @@
                     <label class="label block mb-2" for="comment">Comment</label>
                     <textarea id="comment" name="comment" class="form-control" rows="5">{{ old('comment') }}</textarea>
                 </div>
-
             </div>
             <div class="text-right">
                 <button type="submit" class="btn btn_primary uppercase">Save</button>
             </div>
-
         </form>
     </div>
 
