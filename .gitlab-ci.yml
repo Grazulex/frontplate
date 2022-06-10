@@ -55,6 +55,7 @@ insights:
   artifacts:
     reports:
       codequality: codeclimate-report.json
+  allow_failure: true
 phpunit:
   stage: test
   dependencies:
