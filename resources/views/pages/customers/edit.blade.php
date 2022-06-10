@@ -45,7 +45,7 @@
                         <select class="form-control"
                             name="delivery_type" required>
                             @foreach(App\Enums\DeliveryTypeEnums::cases() as $type)
-                                <option value="{{ $type->value }}" {{ old('delivery_type', $customer->delivery_type) != $type->value ?: 'selected' }}>
+                                <option value="{{ $type->value }}" {{ old('delivery_type', $customer->delivery_type->value) == $type->value ? 'selected' : '' }}>
                                     {{ $type->name }}
                                 </option>
                             @endforeach
@@ -120,7 +120,7 @@
                         <select class="form-control"
                             name="process_type" required>
                             @foreach(App\Enums\ProcessTypeEnums::cases() as $type)
-                                <option value="{{ $type->value }}" {{ old('process_type', $customer->process_type) != $type->value ?: 'selected' }}>
+                                <option value="{{ $type->value }}" {{ old('process_type', $customer->process_type->value) == $type->value ? 'selected' : '' }}>
                                     {{ $type->name }}
                                 </option>
                             @endforeach
@@ -134,7 +134,7 @@
                         <select class="form-control"
                             name="location_report_type" required>
                             @foreach(App\Enums\LocationReportTypeEnums::cases() as $type)
-                                <option value="{{ $type->value }}" {{ old('location_report_type', $customer->location_report_type) != $type->value ?: 'selected' }}>
+                                <option value="{{ $type->value }}" {{ old('location_report_type', $customer->location_report_type->value) == $type->value ? 'selected' : '' }}>
                                     {{ $type->name }}
                                 </option>
                             @endforeach
