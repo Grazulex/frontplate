@@ -29,7 +29,7 @@ class Customer extends Model
         'process_type',
         'process_file',
         'location_report_type',
-        'enum_ref'
+        'enum_ref',
     ];
 
     protected $casts = [

@@ -34,7 +34,7 @@
             @method('PUT')
             <div class="flex mb-2">
                 <div class="w-1/2 mr-2">
-                    <label class="label block mb-2" for="amount">Name</label>
+                    <label class="label block mb-2" for="name">Name</label>
                     <input value="{{ old('name', $customer->name) }}" id="name" name="name" type="text" class="form-control" placeholder="Enter customer name" required>
                 </div>
                 <div class="w-1/2 mr-2">

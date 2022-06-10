@@ -38,7 +38,7 @@ class StoreCustomerRequest extends FormRequest
             'process_type'   => 'required',
             'location_report_type'   => 'required',
             'process_file'   => 'sometimes|mimes:pdf',
-            'enum_ref'   => 'sometimes',
+            'enum_ref'   => 'sometimes'
         ];
     }
 }

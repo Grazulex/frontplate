@@ -10,9 +10,4 @@ enum ItemsEnums: string
     case TEC = 'TEC';
     case PH_INV = 'PH_INV';
     case VISPH = 'VISPH';
-
-    public function isCombo()
-    {
-        return [$this::BELFIUS_COMBI, $this::TOYOTA_FINANCIAL, $this::VANBREDA_AOMBI];
-    }
 }
