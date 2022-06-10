@@ -33,9 +33,13 @@
             @csrf
             @method('PUT')
             <div class="flex mb-2">
-                <div class="w-full">
+                <div class="w-1/2 mr-2">
                     <label class="label block mb-2" for="amount">Name</label>
                     <input value="{{ old('name', $customer->name) }}" id="name" name="name" type="text" class="form-control" placeholder="Enter customer name" required>
+                </div>
+                <div class="w-1/2 mr-2">
+                    <label class="label block mb-2" for="enum_ref">Enum ref</label>
+                    <input value="{{ old('enum_ref', $customer->enum_ref) }}" id="enum_ref" name="enum_ref" type="text" class="form-control" placeholder="Enter the technical enum ref">
                 </div>
             </div>
             <div class="flex mb-2">

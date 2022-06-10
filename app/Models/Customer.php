@@ -28,7 +28,8 @@ class Customer extends Model
         'is_inmotiv_customer',
         'process_type',
         'process_file',
-        'location_report_type'
+        'location_report_type',
+        'enum_ref'
     ];
 
     protected $casts = [
