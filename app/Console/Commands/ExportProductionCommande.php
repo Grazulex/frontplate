@@ -51,7 +51,7 @@ class ExportProductionCommande extends Command
             foreach ($plates as $plate) {
                 $plate->production_id = $production->id;
                 $plate->forceFill([
-                    'datas->production_date' => Carbon::now()->format('Y-m-d H:i:s')]
+                    'datas->production_date' => Carbon::now()->format('Y-m-d H:i:s')
                 ]);
                 $plate->update();
                 if ($plate->origin === OriginEnums::INMOTIV) {
