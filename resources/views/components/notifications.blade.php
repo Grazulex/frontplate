@@ -43,7 +43,16 @@
                 <div>
                     <hr>
                     <div class="p-5 hover:bg-primary hover:bg-opacity-5">
-                        <a href="#" @click="items = items.filter((currItem) => currItem != item)">
+                        <a
+                        href="#"
+                        @click="
+                            items = items.filter((currItem) => currItem != item);
+                            fetch('/api/notifications/'+ item.id , {
+                                    method: 'delete',
+                                }
+                            );
+                        "
+                        >
                             <h6 class="uppercase" x-text="new Date(item.created_at).toLocaleString('fr-be')"></h6>
                             <p class="text-black" x-text="item.content"></p>
                         </a>

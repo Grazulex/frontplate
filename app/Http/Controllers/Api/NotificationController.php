@@ -12,8 +12,13 @@ class NotificationController extends Controller
 {
     public function index(Request $request): JsonResponse
     {
-        $notifications = Notification::select(['created_at', 'content'])->where('user_id', $request->input('id'))->latest()->take(5)->get();
+        $notifications = Notification::select(['id', 'created_at', 'content'])->where('user_id', $request->input('id'))->latest()->take(5)->get();
 
         return Response()->Json($notifications);
+    }
+
+    public function destroy(Notification $notification)
+    {
+        $notification->delete();
     }
 }

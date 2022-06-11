@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/notifications', [NotificationController::class, 'index']);
+Route::delete('/notifications/{notification}', [NotificationController::class, 'destroy']);
