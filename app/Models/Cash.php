@@ -21,20 +21,37 @@ class Cash extends Model
 
     protected $searchableFields = ['*'];
 
+    /**
+     * 
+     * @return BelongsTo 
+     */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(
+            related: User::class,
+            foreignKey: 'user_id'
+        );
     }
 
+    /**
+     * 
+     * @return BelongsTo 
+     */
     public function close(): BelongsTo
     {
-        return $this->belongsTo(Close::class);
+        return $this->belongsTo(
+            related: Close::class,
+            foreignKey: 'close_id'
+        );
     }
 
-
+    /**
+     * 
+     * @param mixed $price 
+     * @return void 
+     */
     public function setAmountAttribute($price): void
     {
         $this->attributes['amount'] = $price * 100;
     }
-
 }

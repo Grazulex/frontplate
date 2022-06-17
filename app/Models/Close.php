@@ -20,18 +20,39 @@ class Close extends Model
 
     protected $searchableFields = ['*'];
 
+    /**
+     * 
+     * @return HasMany 
+     */
     public function cashes(): HasMany
     {
-        return $this->hasMany(Cash::class);
+        return $this->hasMany(
+            related: Cash::class,
+            foreignKey: 'close_id'
+        );
     }
 
+    /**
+     * 
+     * @return HasMany 
+     */
     public function receptions(): HasMany
     {
-        return $this->hasMany(Reception::class);
+        return $this->hasMany(
+            related: Reception::class,
+            foreignKey: 'close_id'
+        );
     }
 
+    /**
+     * 
+     * @return HasMany 
+     */
     public function incomings(): HasMany
     {
-        return $this->hasMany(Incoming::class);
+        return $this->hasMany(
+            related: Incoming::class,
+            foreignKey: 'close_id'
+        );
     }
 }

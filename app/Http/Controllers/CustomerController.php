@@ -18,6 +18,7 @@ class CustomerController extends Controller
 
         $customers = Customer::search($search)
             ->latest()
+            ->withCount('incomings')
             ->paginate(10);
 
         return view('pages.customers.index', compact('customers', 'search'));
@@ -33,7 +34,7 @@ class CustomerController extends Controller
         $customer = Customer::create($request->validated());
 
         if ($request->file()) {
-            $fileName = $customer->id.'.'.$request->file('process_file')->getClientOriginalExtension();
+            $fileName = $customer->id . '.' . $request->file('process_file')->getClientOriginalExtension();
             $filePath = $request->file('process_file')->storeAs('uploads/process', $fileName, 'public');
             $customer->process_file = '/storage/' . $filePath;
             $customer->save();
@@ -51,7 +52,7 @@ class CustomerController extends Controller
 
     public function process(Customer $customer): StreamedResponse
     {
-        $filename = $customer->id.'.pdf';
+        $filename = $customer->id . '.pdf';
 
         //dd('storage/uploads/process/'.$filename);
 
@@ -64,7 +65,7 @@ class CustomerController extends Controller
         );
 
         $callback = function () use ($filename) {
-            readfile('storage/uploads/process/'.$filename);
+            readfile('storage/uploads/process/' . $filename);
         };
 
         return response()->stream($callback, 200, $headers);
@@ -75,7 +76,7 @@ class CustomerController extends Controller
         $customer->update($request->validated());
 
         if ($request->file()) {
-            $fileName = $customer->id.'.'.$request->file('process_file')->getClientOriginalExtension();
+            $fileName = $customer->id . '.' . $request->file('process_file')->getClientOriginalExtension();
             $filePath = $request->file('process_file')->storeAs('uploads/process', $fileName, 'public');
             $customer->process_file = '/storage/' . $filePath;
             $customer->save();

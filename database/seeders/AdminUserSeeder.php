@@ -4,16 +4,19 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use Illuminate\Contracts\Container\BindingResolutionException;
+use Illuminate\Database\Eloquent\MassAssignmentException;
 
 class AdminUserSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
-     *
-     * @return void
+     * 
+     * @return void 
+     * @throws BindingResolutionException 
+     * @throws MassAssignmentException 
      */
-    public function run()
+    public function run(): void
     {
-        User::create(['name'=>'Jean-Marc Strauven', 'email'=>'jean-marc.strauven@otmgroup.be', 'email_verified_at'=> now(), 'password'=> bcrypt('Katleen2229!')]);
+        User::create(['name' => 'Jean-Marc Strauven', 'email' => 'jean-marc.strauven@otmgroup.be', 'email_verified_at' => now(), 'password' => bcrypt('password')]);
     }
 }

@@ -1,7 +1,6 @@
 @extends('layouts.master', ['title' => 'Customers - Listing'])
 
 @section('workspace')
-
     <!-- Breadcrumb -->
     <section class="breadcrumb">
         <h1>Dashboard</h1>
@@ -28,9 +27,10 @@
             <thead>
                 <tr>
                     <th class="ltr:text-left rtl:text-right uppercase">Name</th>
-                    <th class="ltr:text-left rtl:text-right uppercase">delivery type</th>
-                    <th class="ltr:text-left rtl:text-right uppercase">is inmotiv Customer ?</th>
-                    <th class="ltr:text-left rtl:text-right uppercase">process type</th>
+                    <th class="ltr:text-left rtl:text-right uppercase">Delivery type</th>
+                    <th class="ltr:text-left rtl:text-right uppercase">Is inmotiv Customer ?</th>
+                    <th class="ltr:text-left rtl:text-right uppercase">Process type</th>
+                    <th class="ltr:text-left rtl:text-right uppercase">Incomings</th>
                     <th class="ltr:text-left rtl:text-right uppercase">Action</th>
                 </tr>
             </thead>
@@ -39,7 +39,8 @@
                     <tr>
                         <td>{{ $customer->name }}</td>
                         <td>
-                            <div class="badge uppercase {{ $customer->delivery_type->name == App\Enums\DeliveryTypeEnums::BPOST->name ? 'badge_primary' : 'badge_secondary'  }}">
+                            <div
+                                class="badge uppercase {{ $customer->delivery_type->name == App\Enums\DeliveryTypeEnums::BPOST->name ? 'badge_primary' : 'badge_secondary' }}">
                                 {{ $customer->delivery_type->name }}
                             </div>
                         </td>
@@ -49,19 +50,27 @@
                             @endif
                         </td>
                         <td>
-                            <div class="badge uppercase {{ $customer->process_type->name == App\Enums\ProcessTypeEnums::INMOTIV->name ? 'badge_primary' : 'badge_secondary'  }}">
+                            <div
+                                class="badge uppercase {{ $customer->process_type->name == App\Enums\ProcessTypeEnums::INMOTIV->name ? 'badge_primary' : 'badge_secondary' }}">
                                 {{ $customer->process_type->name }}
                             </div>
                         </td>
+                        <td>{{ $customer->incomings_count }}</td>
                         <td>
                             <form action="{{ route('customers.destroy', $customer->id) }}" method="POST">
                                 @if ($customer->process_file)
-                                    <a href="{{ route('customers.process', $customer->id) }}" class="border-solid border-2 border-success rounded-full text-center p-2"><i class="las la-file-pdf"></i></a>
+                                    <a href="{{ route('customers.process', $customer->id) }}"
+                                        class="border-solid border-2 border-success rounded-full text-center p-2"><i
+                                            class="las la-file-pdf"></i></a>
                                 @endif
-                                <a href="{{ route('customers.edit', $customer->id) }}" class="border-solid border-2 border-primary rounded-full text-center p-2"><i class="las la-pen"></i></a>
+                                <a href="{{ route('customers.edit', $customer->id) }}"
+                                    class="border-solid border-2 border-primary rounded-full text-center p-2"><i
+                                        class="las la-pen"></i></a>
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="border-solid border-2 border-danger rounded-full text-center p-2"><i class="las la-trash"></i></button>
+                                <button type="submit"
+                                    class="border-solid border-2 border-danger rounded-full text-center p-2"><i
+                                        class="las la-trash"></i></button>
                             </form>
                         </td>
                     </tr>
@@ -69,7 +78,6 @@
                     <tr>
                         <td colspan="7">{{ __('No customers found.') }}</td>
                     </tr>
-
                 @endforelse
             </tbody>
         </table>
@@ -79,10 +87,7 @@
             </div>
         </div>
     </div>
-
 @endsection
 
 @section('scripts')
-
-
 @endsection
