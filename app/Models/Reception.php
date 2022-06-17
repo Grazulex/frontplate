@@ -12,7 +12,11 @@ class Reception extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = ['amount_cash', 'amount_bbc', 'close_id'];
+    protected $fillable = [
+        'amount_cash',
+        'amount_bbc',
+        'close_id'
+    ];
 
     protected $searchableFields = ['*'];
 
@@ -21,16 +25,33 @@ class Reception extends Model
         'amount_bbc'    => 'integer'
     ];
 
+    /**
+     * 
+     * @return BelongsTo 
+     */
     public function close(): BelongsTo
     {
-        return $this->belongsTo(Close::class);
+        return $this->belongsTo(
+            related: Close::class,
+            foreignKey: 'close_id'
+        );
     }
 
+    /**
+     * 
+     * @param mixed $price 
+     * @return void 
+     */
     public function setAmountCashAttribute($price): void
     {
         $this->attributes['amount_cash'] = $price * 100;
     }
 
+    /**
+     * 
+     * @param mixed $price 
+     * @return void 
+     */
     public function setAmountBbcAttribute($price): void
     {
         $this->attributes['amount_bbc'] = $price * 100;

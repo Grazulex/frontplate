@@ -12,7 +12,13 @@ class Cash extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = ['user_id', 'amount', 'total', 'comment', 'close_id'];
+    protected $fillable = [
+        'user_id',
+        'amount',
+        'total',
+        'comment',
+        'close_id'
+    ];
 
     protected $casts = [
         'amount'    => 'integer',

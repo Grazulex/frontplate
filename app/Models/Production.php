@@ -14,8 +14,15 @@ class Production extends Model
 
     protected $searchableFields = ['*'];
 
+    /**
+     * 
+     * @return HasMany 
+     */
     public function plates(): HasMany
     {
-        return $this->hasMany(Plate::class);
+        return $this->hasMany(
+            related: Plate::class,
+            foreignKey: 'production_id'
+        );
     }
 }

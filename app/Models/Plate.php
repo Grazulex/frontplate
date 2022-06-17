@@ -13,22 +13,50 @@ class Plate extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = ['reference', 'type', 'origin', 'order_id', 'customer', 'customer_key', 'is_cod', 'is_rush', 'created_at', 'production_id', 'datas'];
+    protected $fillable = [
+        'reference',
+        'type',
+        'origin',
+        'order_id',
+        'customer',
+        'customer_key',
+        'is_cod',
+        'is_rush',
+        'created_at',
+        'production_id',
+        'datas'
+    ];
 
     protected $casts = [
         'origin'    => OriginEnums::class,
-        'datas'     => 'array'
+        'datas'     => 'array',
+        'is_cod'    => 'boolean',
+        'is_rush'   => 'boolean',
     ];
 
     protected $searchableFields = ['*'];
 
+    /**
+     * 
+     * @return BelongsTo 
+     */
     public function production(): BelongsTo
     {
-        return $this->belongsTo(Production::class);
+        return $this->belongsTo(
+            related: Production::class,
+            foreignKey: 'production_id'
+        );
     }
 
+    /**
+     * 
+     * @return BelongsTo 
+     */
     public function incoming(): BelongsTo
     {
-        return $this->belongsTo(Incoming::class);
+        return $this->belongsTo(
+            related: Incoming::class,
+            foreignKey: 'incoming_id'
+        );
     }
 }
