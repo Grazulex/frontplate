@@ -30,36 +30,6 @@
             class="hidden lg:inline-block btn-link ltr:ml-3 rtl:mr-3 px-2 text-2xl leading-none la la-expand-arrows-alt"
             data-toggle="tooltip" data-tippy-content="Fullscreen"></button>
 
-        <!-- Apps -->
-        <div class="dropdown self-stretch">
-            <button type="button"
-                class="flex items-center h-full btn-link ltr:ml-4 rtl:mr-4 lg:ltr:ml-1 lg:rtl:mr-1 px-2 text-2xl leading-none la la-box"
-                data-toggle="custom-dropdown-menu" data-tippy-arrow="true" data-tippy-placement="bottom">
-            </button>
-            <div class="custom-dropdown-menu p-5 text-center">
-                <div class="flex justify-around">
-                    <a href="#" class="p-5 text-normal hover:text-primary">
-                        <span class="block la la-cog text-5xl leading-none"></span>
-                        <span>Settings</span>
-                    </a>
-                    <a href="#" class="p-5 text-normal hover:text-primary">
-                        <span class="block la la-users text-5xl leading-none"></span>
-                        <span>Users</span>
-                    </a>
-                </div>
-                <div class="flex justify-around">
-                    <a href="#" class="p-5 text-normal hover:text-primary">
-                        <span class="block la la-book text-5xl leading-none"></span>
-                        <span>Docs</span>
-                    </a>
-                    <a href="#" class="p-5 text-normal hover:text-primary">
-                        <span class="block la la-dollar text-5xl leading-none"></span>
-                        <span>Shop</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-
         <!-- Notifications -->
         <x-notifications />
 
