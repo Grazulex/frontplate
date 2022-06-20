@@ -14,26 +14,27 @@ class DashboardController extends Controller
 {
     public function index(Request $request): View
     {
-
         $platesWaiting = Plate::whereNull('production_id')->whereIn('type', TypeEnums::cases())->count();
         $platesproducted7days = Plate::with('production')
             ->whereHas('production', function ($query) {
-                $query->where('created_at','>',Carbon::now()->subDays(7));
+                $query->where('created_at', '>', Carbon::now()->subDays(7));
             })
             ->whereNotNull('production_id')
             ->whereIn('type', TypeEnums::cases())
             ->count();
         $platesproducted1days = Plate::with('production')
             ->whereHas('production', function ($query) {
-                $query->where('created_at','>',Carbon::now()->subDays(1));
+                $query->where('created_at', '>', Carbon::now()->subDays(1));
             })
             ->whereNotNull('production_id')
             ->whereIn('type', TypeEnums::cases())
-            ->count();   
-            
+            ->count();
+
+        $incomingsWaiting = Plate::where('is_incoming', 1)->whereNull('incoming_id')->whereIn('type', TypeEnums::cases())->count();
+
         $startDate = Carbon::today();
-        $endDate = Carbon::today()->addDays(60);   
-        $holidays = HolidayService::get(); 
+        $endDate = Carbon::today()->addDays(60);
+        $holidays = HolidayService::get();
         $period = CarbonPeriod::create($startDate, $endDate);
         $nextHoliday=null;
         foreach ($period as $dt) {
@@ -43,6 +44,6 @@ class DashboardController extends Controller
             }
         }
 
-        return view('pages.index', compact('platesWaiting', 'platesproducted7days', 'platesproducted1days', 'nextHoliday'));
+        return view('pages.index', compact('platesWaiting', 'platesproducted7days', 'platesproducted1days', 'nextHoliday', 'incomingsWaiting'));
     }
 }
