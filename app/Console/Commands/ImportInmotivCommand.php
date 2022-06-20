@@ -69,7 +69,7 @@ class ImportInmotivCommand extends Command
                             $price = (float)(str_replace(',', '.', $order['price']));
                         }
                         $is_incoming = false;
-                        if ($order['PRODUCT_TYPE'] === 'packs') {
+                        if ($order['product_type'] === 'packs') {
                             $is_incoming = true;
                             $order['plate_type'] = 'N1FR';
                         }
