@@ -2,8 +2,10 @@
 
 namespace App\Console\Commands;
 
+use App\Enums\ItemsEnums;
 use App\Enums\OriginEnums;
 use App\Jobs\ProcessInsertNotification;
+use App\Models\Customer;
 use App\Models\Plate;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
@@ -66,6 +68,12 @@ class ImportInmotivCommand extends Command
                         if (!empty($order['price'])) {
                             $price = (float)(str_replace(',', '.', $order['price']));
                         }
+                        $is_incoming = false;
+                        if ($order['PRODUCT_TYPE'] === 'packs') {
+                            $is_incoming = true;
+                            $order['plate_type'] = 'N1FR';
+                        }
+
                         $plate = Plate::create([
                             'created_at'    => $order['order_date'],
                             'reference'     => $order['plate_number'],
@@ -76,6 +84,7 @@ class ImportInmotivCommand extends Command
                             'customer_key'  => $order['destination_key'],
                             'amount'        => $price*100,
                             'is_cod'        => $isCod,
+                            'is_incoming'   => $is_incoming,
                             'datas'         => $order
                         ]);
                         $inserted++;

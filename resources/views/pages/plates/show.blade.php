@@ -27,7 +27,12 @@
                 </tr>
                 <tr>
                     <td class="ltr:text-left rtl:text-right uppercase">Type</td>
-                    <td>{{ $plate->type }}</td>
+                    <td>
+                        {{ $plate->type }}
+                        @if ($plate->is_incoming)
+                            (*)
+                        @endif
+                    </td>
                 </tr>
                 <tr>
                     <td class="ltr:text-left rtl:text-right uppercase">Origin</td>
@@ -41,6 +46,12 @@
                     <td class="ltr:text-left rtl:text-right uppercase">Customer</td>
                     <td>{{ $plate->customer }}</td>
                 </tr>
+                @if ($plate->incoming)
+                    <tr>
+                        <td class="ltr:text-left rtl:text-right uppercase">Incoming Date</td>
+                        <td><a href="{{ route('incomings.show', $plate->incoming->id) }}">{{ $plate->incoming->created_at }}</a></td>
+                    </tr>
+                @endif
                 @if ($plate->production)
                     <tr>
                         <td class="ltr:text-left rtl:text-right uppercase">Production Date</td>

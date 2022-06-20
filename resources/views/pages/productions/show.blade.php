@@ -41,7 +41,12 @@
             @forelse ($production->plates as $plate)
                 <tr>
                     <td><a href="{{ route('plates.show', $plate->id) }}">{{ $plate->reference }}</a></td>
-                    <td>{{ $plate->type }}</td>
+                    <td>
+                        {{ $plate->type }}
+                        @if ($plate->is_incoming)
+                            (*)
+                        @endif
+                    </td>
                     <td>{{ $plate->origin->name }}</td>
                     <td>{{ $plate->customer }}</td>
                 </tr>

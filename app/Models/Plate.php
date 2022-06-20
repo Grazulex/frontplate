@@ -21,9 +21,11 @@ class Plate extends Model
         'customer',
         'customer_key',
         'is_cod',
+        'is_incoming',
         'is_rush',
         'created_at',
         'production_id',
+        'incoming_id',
         'datas'
     ];
 
@@ -32,13 +34,14 @@ class Plate extends Model
         'datas'     => 'array',
         'is_cod'    => 'boolean',
         'is_rush'   => 'boolean',
+        'is_incoming'   => 'boolean',
     ];
 
     protected $searchableFields = ['*'];
 
     /**
-     * 
-     * @return BelongsTo 
+     *
+     * @return BelongsTo
      */
     public function production(): BelongsTo
     {
@@ -49,8 +52,8 @@ class Plate extends Model
     }
 
     /**
-     * 
-     * @return BelongsTo 
+     *
+     * @return BelongsTo
      */
     public function incoming(): BelongsTo
     {

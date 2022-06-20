@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Jobs\ProcessUpdateDateInMotiv;
 use App\Jobs\ProcessInsertNotification;
 use App\Mail\Production as MailProduction;
+use Str;
 
 class ExportProductionCommande extends Command
 {
@@ -45,7 +46,17 @@ class ExportProductionCommande extends Command
             die();
         }
 
-        $plates = Plate::whereNull('production_id')->whereIn('type', array_column(TypeEnums::cases(), 'name'))->get();
+        $plates = Plate::whereIn('type', array_column(TypeEnums::cases(), 'name'))
+            ->whereNull('production_id')
+            ->where(function ($q) {
+                $q->orWhere(function ($q) {
+                    $q->where('is_incoming', 0);
+                });
+                $q->orWhere(function ($q) {
+                    $q->where('is_incoming', 1)->whereNotNull('incoming_id');
+                });
+            })->get()
+            ;
         if ($plates->count() > 0) {
             $production = Production::create();
             foreach ($plates as $plate) {

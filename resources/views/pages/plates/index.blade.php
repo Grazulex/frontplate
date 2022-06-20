@@ -34,6 +34,7 @@
                     <th class="ltr:text-left rtl:text-right uppercase">Order Id</th>
                     <th class="ltr:text-left rtl:text-right uppercase">Customer</th>
                     <th class="ltr:text-left rtl:text-right uppercase">Production</th>
+                    <th class="ltr:text-left rtl:text-right uppercase">Incoming</th>
                     <th class="ltr:text-left rtl:text-right uppercase">Action</th>
                 </tr>
             </thead>
@@ -46,7 +47,12 @@
                                 {{ $plate->reference }}
                             </div>
                         </td>
-                        <td>{{ $plate->type }}</td>
+                        <td>
+                            {{ $plate->type }}
+                            @if ($plate->is_incoming)
+                                (*)
+                            @endif
+                        </td>
                         <td>
                             <div class="badge uppercase {{ $plate->origin->name ==  'ESHOP' ? 'badge_primary' : 'badge_secondary'  }}">
                                 {{ $plate->origin->name }}
@@ -58,6 +64,13 @@
                             @if ($plate->production)
                                 <a href="">
                                     {{ optional($plate->production)->created_at }}
+                                </a>
+                            @endif
+                        </td>
+                        <td>
+                            @if ($plate->incoming)
+                                <a href="">
+                                    {{ optional($plate->incoming)->created_at }}
                                 </a>
                             @endif
                         </td>
