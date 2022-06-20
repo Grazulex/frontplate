@@ -4,7 +4,7 @@
 
     <!-- Breadcrumb -->
     <section class="breadcrumb">
-        <h1>Dashboard</h1>
+        <div class="text-3xl">Dashboard</div>
         <ul>
             <li><a href="{{ route('cashes.index') }}">Cashes</a></li>
             <li class="divider la la-arrow-right"></li>
@@ -13,7 +13,10 @@
     </section>
 
     <div class="card p-5">
-        <h3>Cashes - Listing</h3>
+        <div class="flex flex-row justify-between">
+            <div class="text-xl">Cashes - Listing</div>
+            <div><a href="{{ route('cashes.create') }}" class="border-solid border-2 border-info rounded-full text-center p-2"><i class="las la-plus"></i></a></div>
+        </div>
         @if ($message = Session::get('success'))
             <div class="border-t-4 border-success rounded-b text-success px-4 py-3 shadow-md my-3" role="alert">
                 <div class="flex">
@@ -51,12 +54,12 @@
                                     <a href="{{ route('cashes.edit', $cash->id) }}" class="border-solid border-2 border-primary rounded-full text-center p-2"><i class="las la-pen"></i></a>
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="border-solid border-2 border-danger rounded-full text-center p-2"><i class="las la-trash"></i></button>                                
+                                        <button type="submit" class="border-solid border-2 border-danger rounded-full text-center p-2"><i class="las la-trash"></i></button>
                                 </form>
-                            @endif                                    
+                            @endif
                         </td>
                     </tr>
-                @empty   
+                @empty
                     <tr>
                         <td colspan="6">{{ __('No cashes found.') }}</td>
                     </tr>
@@ -65,7 +68,7 @@
         </table>
         <div class="row py-2">
             <div class="col-md-12">
-                {{ $cashes->links('pagination::tailwind') }} 
+                {{ $cashes->links('pagination::tailwind') }}
             </div>
         </div>
     </div>

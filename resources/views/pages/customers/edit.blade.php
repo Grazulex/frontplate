@@ -4,7 +4,7 @@
 
     <!-- Breadcrumb -->
     <section class="breadcrumb">
-        <h1>Dashboard</h1>
+        <div class="text-3xl">Dashboard</div>
         <ul>
             <li><a href="{{ route('customers.index') }}">Customers</a></li>
             <li class="divider la la-arrow-right"></li>
@@ -13,7 +13,7 @@
     </section>
 
     <div class="card p-5">
-        <h3>Customers - Edit {{ $customer->name }}</h3>
+        <div class="text-xl">Customers - Edit {{ $customer->name }}</div>
 
         @if ($errors->any())
             <div>

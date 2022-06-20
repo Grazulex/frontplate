@@ -4,7 +4,7 @@
 
     <!-- Breadcrumb -->
     <section class="breadcrumb">
-        <h1>Dashboard</h1>
+        <div class="text-3xl">Dashboard</div>
         <ul>
             <li><a href="{{ route('plates.index') }}">Plates</a></li>
             <li class="divider la la-arrow-right"></li>
@@ -13,7 +13,7 @@
     </section>
 
     <div class="card p-5">
-        <h3>Plates - Show {{ $plate->reference}}</h3>
+        <div class="text-xl">Plates - Show {{ $plate->reference}}</div>
 
         <table class="w-full table-fixed">
             <tbody>
@@ -62,7 +62,7 @@
                     <td class="ltr:text-left rtl:text-right uppercase">{{ $key }}</td>
                     <td>{{ $data }}</td>
                 </tr>
-            @empty   
+            @empty
                 <tr>
                     <td colspan="2">{{ __('No datas found.') }}</td>
                 </tr>

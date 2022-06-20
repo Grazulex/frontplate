@@ -4,7 +4,7 @@
 
     <!-- Breadcrumb -->
     <section class="breadcrumb">
-        <h1>Dashboard</h1>
+        <div class="text-3xl">Dashboard</div>
         <ul>
             <li><a href="{{ route('closes.index') }}">Closes</a></li>
             <li class="divider la la-arrow-right"></li>
@@ -13,7 +13,7 @@
     </section>
 
     <div class="card p-5">
-        <h3>Closes - Show {{ $close->created_at}}</h3>
+        <div class="text-xl">Closes - Show {{ $close->created_at}}</div>
 
         <table class="w-full table-fixed">
             <tbody>

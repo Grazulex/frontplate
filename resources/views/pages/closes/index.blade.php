@@ -13,7 +13,10 @@
     </section>
 
     <div class="card p-5">
-        <h3>Closes - Listing</h3>
+        <div class="flex flex-row justify-between">
+            <div class="text-xl">Closes - Listing</div>
+            <div><a href="{{ route('closes.create') }}" class="border-solid border-2 border-info rounded-full text-center p-2"><i class="las la-plus"></i></a></div>
+        </div>
         <table class="table table_hoverable w-full mt-3">
             <thead>
                 <tr>

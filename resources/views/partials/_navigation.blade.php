@@ -127,16 +127,6 @@
                 <span class="icon las la-sign-in-alt"></span>
                 Incomings
             </a>
-            <hr>
-            <h6 class="uppercase">Inserts</h6>
-            <a href="{{ route('incomings.create') }}">
-                <span class="icon las la-sign-in-alt"></span>
-                Reception
-            </a>
-            <a href="{{ url('/ui/components/avatars') }}">
-                <span class="icon las la-sign-out-alt"></span>
-                Return Bpost
-            </a>
         </div>
     </div>
 
@@ -155,20 +145,6 @@
                 <span class="icon las la-coins"></span>
                 Closing
             </a>
-            <hr>
-            <h6 class="uppercase">Inserts</h6>
-            <a href="{{ route('cashes.create') }}">
-                <span class="las la-cash-register"></span>
-                Cash Ledgers
-            </a>
-            <a href="{{ route('receptions.create') }}">
-                <span class="icon las la-sign-in-alt"></span>
-                Reception
-            </a>
-            <a href="{{ route('closes.create') }}">
-                <span class="icon las la-coins"></span>
-                Closing
-            </a>
         </div>
     </div>
 
@@ -179,12 +155,6 @@
                 <span class="icon las la-users"></span>
                 Customers
             </a>
-            <hr>
-            <h6 class="uppercase">Inserts</h6>
-            <a href="{{ route('customers.create') }}">
-                <span class="icon las la-users"></span>
-                Customer
-            </a>
         </div>
     </div>
 
@@ -194,12 +164,6 @@
             <a href="{{ route('users.index') }}">
                 <span class="icon las la-user-tie"></span>
                 Users
-            </a>
-            <hr>
-            <h6 class="uppercase">Inserts</h6>
-            <a href="{{ route('users.create') }}">
-                <span class="icon las la-user-tie"></span>
-                User
             </a>
         </div>
     </div>

@@ -4,7 +4,7 @@
 
     <!-- Breadcrumb -->
     <section class="breadcrumb">
-        <h1>Dashboard</h1>
+        <div class="text-xl">Dashboard</div>
         <ul>
             <li><a href="{{ route('incomings.index') }}">Incomings</a></li>
             <li class="divider la la-arrow-right"></li>
@@ -13,7 +13,10 @@
     </section>
 
     <div class="card p-5">
-        <h3>Incomings - Listing</h3>
+        <div class="flex flex-row justify-between">
+            <div class="text-xl">Incomings - Listing</div>
+            <div><a href="{{ route('incomings.create') }}" class="border-solid border-2 border-info rounded-full text-center p-2"><i class="las la-plus"></i></a></div>
+        </div>
         @if ($message = Session::get('success'))
             <div class="border-t-4 border-success rounded-b text-success px-4 py-3 shadow-md my-3" role="alert">
                 <div class="flex">

@@ -4,7 +4,7 @@
 
     <!-- Breadcrumb -->
     <section class="breadcrumb">
-        <h1>Dashboard</h1>
+        <div class="text-3xl">Dashboard</div>
         <ul>
             <li><a href="{{ route('productions.index') }}">Productions</a></li>
             <li class="divider la la-arrow-right"></li>
@@ -13,8 +13,7 @@
     </section>
 
     <div class="card p-5">
-        <h3>Productions - Show {{ $production->created_at}}</h3>
-
+        <div class="text-xl">Productions - Show {{ $production->created_at}}</div>
         <table class="w-full table-fixed">
             <tbody>
                 <tr>
@@ -46,7 +45,7 @@
                     <td>{{ $plate->origin->name }}</td>
                     <td>{{ $plate->customer }}</td>
                 </tr>
-            @empty   
+            @empty
                 <tr>
                     <td colspan="4">{{ __('No plates found.') }}</td>
                 </tr>

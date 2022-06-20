@@ -4,7 +4,7 @@
 
     <!-- Breadcrumb -->
     <section class="breadcrumb">
-        <h1>Dashboard</h1>
+        <div class="text-3xl">Dashboard</div>
         <ul>
             <li><a href="{{ route('productions.index')}}">Productions</a></li>
             <li class="divider la la-arrow-right"></li>
@@ -13,7 +13,7 @@
     </section>
 
     <div class="card p-5">
-        <h3>Productions - Listing</h3>
+        <div class="text-xl">Productions - Listing</div>
         <table class="table table_hoverable w-full mt-3">
             <thead>
                 <tr>
@@ -33,17 +33,17 @@
                             <a href="{{ route('productions.print', $production->id)}}" class="border-solid border-2 border-primary rounded-full text-center p-2"><i class="las la-file-csv"></i></a>
                         </td>
                     </tr>
-                @empty   
+                @empty
                     <tr>
                         <td colspan="3">{{ __('No playes found.') }}</td>
                     </tr>
- 
+
                 @endforelse
             </tbody>
         </table>
         <div class="row py-2">
             <div class="col-md-12">
-                {{ $productions->links('pagination::tailwind') }} 
+                {{ $productions->links('pagination::tailwind') }}
             </div>
         </div>
     </div>

@@ -4,7 +4,7 @@
 
     <!-- Breadcrumb -->
     <section class="breadcrumb">
-        <h1>Dashboard</h1>
+        <div class="text-3xl">Dashboard</div>
         <ul>
             <li><a href="{{ route('plates.index') }}">Plates</a></li>
             <li class="divider la la-arrow-right"></li>
@@ -13,7 +13,7 @@
     </section>
 
     <div class="card p-5">
-        <h3>Plates - Listing</h3>
+        <div class="text-xl">Plates - Listing</div>
         @if ($message = Session::get('success'))
             <div class="border-t-4 border-success rounded-b text-success px-4 py-3 shadow-md my-3" role="alert">
                 <div class="flex">
@@ -67,22 +67,22 @@
                                 @if (!$plate->production)
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="border-solid border-2 border-danger rounded-full text-center p-2"><i class="las la-trash"></i></button>                                
+                                    <button type="submit" class="border-solid border-2 border-danger rounded-full text-center p-2"><i class="las la-trash"></i></button>
                                 @endif
                             </form>
                         </td>
                     </tr>
-                @empty   
+                @empty
                     <tr>
                         <td colspan="8">{{ __('No plates found.') }}</td>
                     </tr>
- 
+
                 @endforelse
             </tbody>
         </table>
         <div class="row py-2">
             <div class="col-md-12">
-                {{ $plates->links('pagination::tailwind') }} 
+                {{ $plates->links('pagination::tailwind') }}
             </div>
         </div>
     </div>

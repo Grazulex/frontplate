@@ -21,8 +21,8 @@ class Incoming extends Model
     protected $searchableFields = ['*'];
 
     /**
-     * 
-     * @return BelongsTo 
+     *
+     * @return BelongsTo
      */
     public function customer(): BelongsTo
     {
@@ -33,8 +33,8 @@ class Incoming extends Model
     }
 
     /**
-     * 
-     * @return BelongsTo 
+     *
+     * @return BelongsTo
      */
     public function close(): BelongsTo
     {
@@ -45,14 +45,14 @@ class Incoming extends Model
     }
 
     /**
-     * 
-     * @return HasMany 
+     *
+     * @return HasMany
      */
     public function plates(): HasMany
     {
         return $this->hasMany(
             related: Plate::class,
-            foreignKey: 'plate_id'
+            foreignKey: 'incoming_id'
         );
     }
 }
