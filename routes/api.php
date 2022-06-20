@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\IncomingController;
 use App\Http\Controllers\Api\NotificationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -15,4 +16,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/notifications', [NotificationController::class, 'index']);
+Route::get('/incomings/cod', [IncomingController::class, 'getCod']);
 Route::delete('/notifications/{notification}', [NotificationController::class, 'destroy']);

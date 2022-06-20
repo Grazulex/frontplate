@@ -56,11 +56,13 @@
                         <td>{{ optional($incoming->close)->created_at }}</td>
                         <td>
                             <form action="{{ route('incomings.destroy', $incoming->id) }}" method="POST">
-                                <a href="{{ route('incomings.show', $incoming->id) }}" class="border-solid border-2 border-success rounded-full text-center p-2"><i class="las la-eye"></i></a>
                                 @csrf
                                 @method('DELETE')
                                 @if (!$incoming->close)
+                                    <a href="{{ route('incomings.step2', $incoming->id) }}" class="border-solid border-2 border-success rounded-full text-center p-2"><i class="las la-eye"></i></a>
                                     <button type="submit" class="border-solid border-2 border-danger rounded-full text-center p-2"><i class="las la-trash"></i></button>
+                                @else
+                                    <a href="{{ route('incomings.show', $incoming->id) }}" class="border-solid border-2 border-success rounded-full text-center p-2"><i class="las la-eye"></i></a>
                                 @endif
                             </form>
                         </td>

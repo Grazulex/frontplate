@@ -6,12 +6,25 @@ use App\Http\Requests\StoreIncomingRequest;
 use App\Http\Requests\UpdateIncomingRequest;
 use App\Models\Customer;
 use App\Models\Incoming;
+use Illuminate\Contracts\View\View as ViewView;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpFoundation\Exception\BadRequestException;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 class IncomingController extends Controller
 {
+    /**
+     *
+     * @param Request $request
+     * @return View
+     * @throws BadRequestException
+     * @throws BindingResolutionException
+     */
     public function index(Request $request): View
     {
         $search = $request->get('search', '');
@@ -43,6 +56,11 @@ class IncomingController extends Controller
         return view('pages.incomings.index', compact('incomings', 'search'));
     }
 
+    /**
+     *
+     * @return View
+     * @throws BindingResolutionException
+     */
     public function create(): View
     {
         $customers = Customer::where('is_delivery_bpost', true)->pluck('name', 'id');
@@ -50,6 +68,14 @@ class IncomingController extends Controller
         return view('pages.incomings.create', compact('customers'));
     }
 
+    /**
+     *
+     * @param StoreIncomingRequest $request
+     * @return RedirectResponse
+     * @throws ValidationException
+     * @throws BindingResolutionException
+     * @throws RouteNotFoundException
+     */
     public function store(StoreIncomingRequest $request): RedirectResponse
     {
         $incoming = Incoming::firstOrCreate(array_merge($request->validated(), ['close_id'=>null]));
@@ -59,20 +85,27 @@ class IncomingController extends Controller
             ->withSuccess('Incoming has been created successfully.');
     }
 
+    /**
+     *
+     * @param Incoming $incoming
+     * @return View
+     * @throws BindingResolutionException
+     */
     public function step2(Incoming $incoming): View
     {
         return view('pages.incomings.step2', compact('incoming'));
     }
 
+
     /**
-     * Display the specified resource.
      *
-     * @param  \App\Models\Incoming  $Incoming
-     * @return \Illuminate\Http\Response
+     * @param Incoming $incoming
+     * @return ViewView|Factory
+     * @throws BindingResolutionException
      */
-    public function show(Incoming $Incoming)
+    public function show(Incoming $incoming)
     {
-        //
+        return view('pages.incomings.show', compact('incoming'));
     }
 
     /**

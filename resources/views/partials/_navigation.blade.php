@@ -124,7 +124,7 @@
                 Production files
             </a>
             <a href="{{ route('incomings.index') }}">
-                <span class="icon las la-sign-in-alt"></span>
+                <span class="icon las la-shipping-fast"></span>
                 Incomings
             </a>
         </div>

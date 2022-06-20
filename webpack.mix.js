@@ -23,6 +23,8 @@ mix.postCss("resources/css/style.css", "public/css", [
   autoprefixer(),
 ]);
 
+mix.js("resources/js/app.js", "public/js");
+
 // JS
 mix.combine(
   [
