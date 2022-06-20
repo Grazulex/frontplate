@@ -10,10 +10,20 @@ class Notification extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'content'];
+    protected $fillable = [
+        'user_id',
+        'content'
+    ];
 
+    /**
+     * 
+     * @return BelongsTo 
+     */
     public function User(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(
+            related: User::class,
+            foreignKey: 'user_id'
+        );
     }
 }
