@@ -21,4 +21,5 @@ enum TypeEnums: string
     case LPO051003 = 'LPO051003';
     case LPO051004 = 'LPO051004';
     case MHFS = 'MHFS';
- }
+    case PLAQ_CEE = 'PLAQ_CEE';
+}
