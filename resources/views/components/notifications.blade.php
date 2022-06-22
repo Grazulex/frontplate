@@ -28,7 +28,7 @@
    <div
     x-cloak
     class="absolute z-10 left-1/2 transform -translate-x-3/4 mt-3 px-2 w-screen max-w-xs sm:px-0"
-    x-show="open"
+    x-show="open && items.length > 0"
     x-transition:enter="transition ease-out duration-200"
     x-transition:enter-start="opacity-0 translate-y-1"
     x-transition:enter-end="opacity-100 translate-y-0"
