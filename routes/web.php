@@ -5,6 +5,7 @@ use App\Http\Controllers\CloseController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IncomingController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\PlateController;
 use App\Http\Controllers\ProductionController;
 use App\Http\Controllers\ReceptionController;
@@ -37,5 +38,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/users/{user}/password', [UserController::class, 'editPassword'])->name('users.edit.password');
     Route::post('/users/{user}/password', [UserController::class, 'updatePassword'])->name('users.update.password');
     Route::resource('users', UserController::class);
+    Route::resource('items', ItemController::class);
 });
 require __DIR__.'/auth.php';

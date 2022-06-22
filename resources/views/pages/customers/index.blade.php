@@ -33,6 +33,7 @@
                     <th class="ltr:text-left rtl:text-right uppercase">Delivery type</th>
                     <th class="ltr:text-left rtl:text-right uppercase">Is inmotiv Customer ?</th>
                     <th class="ltr:text-left rtl:text-right uppercase">Process type</th>
+                    <th class="ltr:text-left rtl:text-right uppercase">Packs</th>
                     <th class="ltr:text-left rtl:text-right uppercase">Incomings</th>
                     <th class="ltr:text-left rtl:text-right uppercase">Action</th>
                 </tr>
@@ -58,6 +59,7 @@
                                 {{ $customer->process_type->name }}
                             </div>
                         </td>
+                        <td>{{ $customer->items_count }}</td>
                         <td>{{ $customer->incomings_count }}</td>
                         <td>
                             <form action="{{ route('customers.destroy', $customer->id) }}" method="POST">
@@ -79,7 +81,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="7">{{ __('No customers found.') }}</td>
+                        <td colspan="8">{{ __('No customers found.') }}</td>
                     </tr>
                 @endforelse
             </tbody>

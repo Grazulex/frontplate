@@ -147,6 +147,32 @@
                     </div>
                 </div>
             </div>
+            <hr class="mt-5 mb-3">
+            <div class="text-xl">Customers - Pack {{ $customer->name }}</div>
+            <table class="table table_hoverable w-full mt-3">
+                <thead>
+                    <tr>
+                        <th class="ltr:text-left rtl:text-right uppercase">Item</th>
+                        <th class="ltr:text-left rtl:text-right uppercase">Ref</th>
+                        <th class="ltr:text-left rtl:text-right uppercase">Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($items as $item)
+                        <tr>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->reference_otm }}</td>
+                            <td><input value="{{ old('quantity['.$item->id.']', $item->quantity) }}" type="number" name="quantity[{{ $item->id }}]" id="quantity[{{ $item->id }}]" class="form-control"></td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="3">{{ __('No items found.') }}</td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+
+
             <div class="text-right">
                 <button type="submit" class="btn btn_primary uppercase">Save</button>
             </div>

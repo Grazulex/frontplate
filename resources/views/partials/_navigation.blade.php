@@ -105,6 +105,11 @@
             <span class="icon las la-users"></span>
             <span class="title">Customers</span>
         </a>
+        <a href="#no-link" class="link" data-target="[data-menu=item]" data-toggle="tooltip-menu"
+        data-tippy-content="Item">
+            <span class="icon las la-boxes"></span>
+            <span class="title">Items</span>
+        </a>
         <a href="#no-link" class="link" data-target="[data-menu=user]" data-toggle="tooltip-menu"
             data-tippy-content="User">
             <span class="icon las la-user-tie"></span>
@@ -154,6 +159,16 @@
             <a href="{{ route('customers.index') }}">
                 <span class="icon las la-users"></span>
                 Customers
+            </a>
+        </div>
+    </div>
+
+    <div class="menu-detail" data-menu="item">
+        <div class="menu-detail-wrapper">
+            <h6 class="uppercase">Listing</h6>
+            <a href="{{ route('items.index') }}">
+                <span class="icon las la-boxes"></span>
+                Items
             </a>
         </div>
     </div>

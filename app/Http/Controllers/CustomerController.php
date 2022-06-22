@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
 use App\Models\Customer;
+use App\Models\CustomerItem;
+use App\Models\Item;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -19,6 +21,7 @@ class CustomerController extends Controller
         $customers = Customer::search($search)
             ->latest()
             ->withCount('incomings')
+            ->withCount('items')
             ->paginate(10);
 
         return view('pages.customers.index', compact('customers', 'search'));
@@ -47,7 +50,16 @@ class CustomerController extends Controller
 
     public function edit(Customer $customer): View
     {
-        return view('pages.customers.edit', compact('customer'));
+        $items = Item::select('items.*', 'customer_items.quantity')
+            ->leftJoin('customer_items', function ($leftJoin) use ($customer) {
+                $leftJoin->on(function ($query) use ($customer) {
+                    $query->on('items.id', 'customer_items.item_id')
+                    ->where("customer_items.customer_id", $customer->id);
+                });
+            })
+            ->get();
+
+        return view('pages.customers.edit', compact('customer', 'items'));
     }
 
     public function process(Customer $customer): StreamedResponse
@@ -80,6 +92,18 @@ class CustomerController extends Controller
             $filePath = $request->file('process_file')->storeAs('uploads/process', $fileName, 'public');
             $customer->process_file = '/storage/' . $filePath;
             $customer->save();
+        }
+
+        if ($request->quantity) {
+            foreach ($request->quantity as $key => $value) {
+                $pack = CustomerItem::firstOrCreate(['customer_id' => $customer->id, 'item_id'=>$key]);
+                if ((int)$value > 0) {
+                    $pack->quantity = $value;
+                    $pack->update();
+                } else {
+                    $pack->delete();
+                }
+            }
         }
         return redirect()
             ->route('customers.index')

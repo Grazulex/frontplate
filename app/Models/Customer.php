@@ -8,6 +8,7 @@ use App\Enums\ProcessTypeEnums;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Scopes\Searchable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Customer extends Model
@@ -45,14 +46,22 @@ class Customer extends Model
     protected $searchableFields = ['*'];
 
     /**
-     * 
-     * @return HasMany 
+     *
+     * @return HasMany
      */
     public function incomings(): HasMany
     {
         return $this->hasMany(
             related: Incoming::class,
             foreignKey: 'customer_id'
+        );
+    }
+
+    public function items(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            related : Item::class,
+            table: 'customer_items'
         );
     }
 }
