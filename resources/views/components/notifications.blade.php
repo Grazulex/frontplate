@@ -40,25 +40,28 @@
     <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
       <div class="relative grid bg-white px-2">
         <template x-for="item in items">
-                <div>
-                    <hr>
-                    <div class="p-5 hover:bg-primary hover:bg-opacity-5">
-                        <a
-                        href="#"
-                        @click="
-                            items = items.filter((currItem) => currItem != item);
-                            fetch('/api/notifications/'+ item.id , {
-                                    method: 'delete',
-                                }
-                            );
-                        "
-                        >
-                            <h6 class="uppercase" x-text="new Date(item.created_at).toLocaleString('fr-be')"></h6>
-                            <p class="text-black" x-text="item.content"></p>
-                        </a>
-                    </div>
+            <div>
+                <hr>
+                <div class="p-5 hover:bg-primary hover:bg-opacity-5">
+                    <a
+                    href="#"
+                    @click="
+                        items = items.filter((currItem) => currItem != item);
+                        fetch('/api/notifications/'+ item.id , {
+                                method: 'delete',
+                            }
+                        );
+                    "
+                    >
+                        <h6 class="uppercase" x-text="new Date(item.created_at).toLocaleString('fr-be')"></h6>
+                        <p class="text-black" x-text="item.content"></p>
+                    </a>
                 </div>
-            </template>
+            </div>
+        </template>
+        <div class="text-right">
+            <a href="{{ route('notifications.index') }}">Show all</a>
+        </div>
       </div>
     </div>
   </div>

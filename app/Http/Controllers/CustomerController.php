@@ -57,6 +57,7 @@ class CustomerController extends Controller
                     ->where("customer_items.customer_id", $customer->id);
                 });
             })
+            ->orderBy('name')
             ->get();
 
         return view('pages.customers.edit', compact('customer', 'items'));
@@ -109,6 +110,7 @@ class CustomerController extends Controller
             ->route('customers.index')
             ->withSuccess('Customer has been updated successfully.');
     }
+
     public function destroy(Customer $customer): RedirectResponse
     {
         $customer->delete();

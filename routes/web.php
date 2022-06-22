@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\CashController;
 use App\Http\Controllers\CloseController;
 use App\Http\Controllers\CustomerController;
@@ -39,5 +40,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/users/{user}/password', [UserController::class, 'updatePassword'])->name('users.update.password');
     Route::resource('users', UserController::class);
     Route::resource('items', ItemController::class);
+    Route::delete('/notifications/destroy/all', [NotificationController::class, 'destroyAll'])->name('notifications.destroy.all');
+    Route::resource('notifications', NotificationController::class)->only(['index', 'destroy']);
 });
 require __DIR__.'/auth.php';
