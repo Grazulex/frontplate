@@ -16,16 +16,48 @@
 
     <div class="card p-5" x-data="{
         count: 0,
-        items: [],
-        getIncominsPlates() {
+        cods: [],
+        noncods: [],
+        rushs: [],
+        cods_amount: 0,
+        rushs_amount: 0,
+        getCodPlates() {
             fetch('/api/incomings/cod?id='+{{ $incoming->id }}, {
                 method: 'GET',
             })
             .then((response) => response.json())
-            .then((json) => this.items = json);
-        }
+            .then((json) => this.cods = json);
+        },
+        getAmountCodPlates() {
+            fetch('/api/incomings/amount_cod?id='+{{ $incoming->id }}, {
+                method: 'GET',
+            })
+            .then((response) => response.json())
+            .then((json) => this.cods_amount = json);
+        },
+        getRushPlates() {
+            fetch('/api/incomings/rush?id='+{{ $incoming->id }}, {
+                method: 'GET',
+            })
+            .then((response) => response.json())
+            .then((json) => this.rushs = json);
+        },
+        getAmountRushPlates() {
+            fetch('/api/incomings/amount_rush?id='+{{ $incoming->id }}, {
+                method: 'GET',
+            })
+            .then((response) => response.json())
+            .then((json) => this.rushs_amount = json);
+        },
+        getNonCodPlates() {
+            fetch('/api/incomings/noncod?id='+{{ $incoming->id }}, {
+                method: 'GET',
+            })
+            .then((response) => response.json())
+            .then((json) => this.noncods = json);
+        },
     }"
-    x-init="getIncominsPlates()">
+    x-init="getCodPlates();getAmountCodPlates();getNonCodPlates();getRushPlates();getAmountRushPlates()">
         <h3>Incomings - Create - Step 2 #{{ $incoming->id }}/{{ $incoming->customer->name }}</h3>
         <div class="font-medium text-danger text-3xl">
             Please, scan now the <span class="bg-social-pinterest text-warning uppercase">cod</span> plates please
@@ -64,7 +96,7 @@
                         class="card px-4 py-8 flex justify-center items-center text-center lg:transform hover:scale-110 hover:shadow-lg transition-transform duration-200">
                         <div>
                             <p class="mt-2">COD #</p>
-                            <div class="text-warning mt-5 text-3xl leading-none" x-text="items.length"></div>
+                            <div class="text-warning mt-5 text-3xl leading-none" x-text="cods.length"></div>
                         </div>
                     </div>
                 </div>
@@ -73,7 +105,7 @@
                     class="card px-4 py-8 flex justify-center items-center text-center lg:transform hover:scale-110 hover:shadow-lg transition-transform duration-200">
                         <div>
                             <p class="mt-2">COD €</p>
-                            <div class="text-warning mt-5 text-3xl leading-none" x-text="items.length"></div>
+                            <div class="text-warning mt-5 text-3xl leading-none" x-text="(cods_amount/100).toFixed(2)"></div>
                         </div>
                     </div>
                 </div>
@@ -82,7 +114,7 @@
                     class="card px-4 py-8 flex justify-center items-center text-center lg:transform hover:scale-110 hover:shadow-lg transition-transform duration-200">
                         <div>
                             <p class="mt-2">non-COD #</p>
-                            <div class="text-social-whatsapp mt-5 text-3xl leading-none">0</div>
+                            <div class="text-social-whatsapp mt-5 text-3xl leading-none" x-text="noncods.length">   </div>
                         </div>
                     </div>
                 </div>
@@ -91,7 +123,7 @@
                     class="card px-4 py-8 flex justify-center items-center text-center lg:transform hover:scale-110 hover:shadow-lg transition-transform duration-200">
                         <div>
                             <p class="mt-2">Rush #</p>
-                            <div class="text-info mt-5 text-3xl leading-none">0</div>
+                            <div class="text-info mt-5 text-3xl leading-none" x-text="rushs.length"></div>
                         </div>
                     </div>
                 </div>
@@ -100,7 +132,7 @@
                     class="card px-4 py-8 flex justify-center items-center text-center lg:transform hover:scale-110 hover:shadow-lg transition-transform duration-200">
                         <div>
                             <p class="mt-2">Rush €</p>
-                            <div class="text-info mt-5 text-3xl leading-none">0</div>
+                            <div class="text-info mt-5 text-3xl leading-none" x-text="(rushs_amount/100).toFixed(2)"></div>
                         </div>
                     </div>
                 </div>
@@ -109,7 +141,7 @@
                     class="card px-4 py-8 flex justify-center items-center text-center lg:transform hover:scale-110 hover:shadow-lg transition-transform duration-200">
                         <div>
                             <p class="mt-2">Total</p>
-                            <div class="text-danger mt-5 text-3xl leading-none">0</div>
+                            <div class="text-danger mt-5 text-3xl leading-none" x-text="((cods_amount/100)+(rushs_amount/100)).toFixed(2)"></div>
                         </div>
                     </div>
                 </div>
@@ -126,10 +158,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <template x-for="item in items">
+                            <template x-for="cod in cods">
                                 <tr>
-                                    <td><span class="px-2 border-solid border-2 border-danger rounded-lg text-danger text-center uppercase" x-text="item.reference"></span></td>
-                                    <td x-text="item.amount/100"></td>
+                                    <td><span class="px-2 border-solid border-2 border-danger rounded-lg text-danger text-center uppercase" x-text="cod.reference"></span></td>
+                                    <td x-text="(cod.amount/100).toFixed(2)"></td>
                                     <td>del</td>
                                 </tr>
                             </template>

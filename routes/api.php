@@ -17,4 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/notifications', [NotificationController::class, 'index']);
 Route::get('/incomings/cod', [IncomingController::class, 'getCod']);
+Route::get('/incomings/amount_cod', [IncomingController::class, 'getAmountCod']);
+Route::get('/incomings/noncod', [IncomingController::class, 'getNonCod']);
+Route::get('/incomings/rush', [IncomingController::class, 'getRush']);
+Route::get('/incomings/amount_rush', [IncomingController::class, 'getAmountRush']);
 Route::delete('/notifications/{notification}', [NotificationController::class, 'destroy']);

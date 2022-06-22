@@ -12,12 +12,52 @@ use Illuminate\Http\JsonResponse;
 
 class IncomingController extends Controller
 {
+    public function getAmountCod(Incoming $incoming)
+    {
+        $plates = Plate::where('incoming_id', $incoming->id)
+        ->where('is_cod', 1)
+        ->where('is_rush', 0)
+        ->sum('amount');
+
+        return Response()->Json($plates);
+    }
+
+    public function getAmountRush(Incoming $incoming)
+    {
+        $plates = Plate::where('incoming_id', $incoming->id)
+        ->where('is_rush', 1)
+        ->sum('amount');
+
+        return Response()->Json($plates);
+    }
+
     public function getCod(Incoming $incoming)
     {
         $plates = Plate::select(['id', 'reference', 'amount'])
             ->where('incoming_id', $incoming->id)
             ->where('is_cod', 1)
-            ->where('is_rush', 0)->get();
+            ->where('is_rush', 0)
+            ->get();
+
+        return Response()->Json($plates);
+    }
+    public function getNonCod(Incoming $incoming)
+    {
+        $plates = Plate::select(['id', 'reference', 'amount'])
+            ->where('incoming_id', $incoming->id)
+            ->where('is_cod', 0)
+            ->where('is_rush', 0)
+            ->get();
+
+        return Response()->Json($plates);
+    }
+
+    public function getRush(Incoming $incoming)
+    {
+        $plates = Plate::select(['id', 'reference', 'amount'])
+            ->where('incoming_id', $incoming->id)
+            ->where('is_rush', 1)
+            ->get();
 
         return Response()->Json($plates);
     }
