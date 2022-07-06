@@ -23,6 +23,6 @@ class Production extends Model
         return $this->hasMany(
             related: Plate::class,
             foreignKey: 'production_id'
-        )->orderBy('customer_key');
+        )->orderBy('customer')->orderBy('customer_key');
     }
 }
