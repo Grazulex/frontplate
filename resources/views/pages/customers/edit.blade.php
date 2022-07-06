@@ -105,7 +105,7 @@
                 </div>
                 <div class="w-1/3 mr-2">
                     <label class="custom-checkbox">
-                        <input type="checkbox" id="is_inmotiv_customer" name="is_inmotiv_customer"  value="1"  {{ old('is_inmotiv_customer', $customer->is_inmotiv_customer) != 1 ?: 'checked' }}>
+                        <input type="checkbox" id="is_inmotiv_customer" name="is_inmotiv_customer"  value="{{ old('is_inmotiv_customer', $customer->is_inmotiv_customer) }}"  {{ old('is_inmotiv_customer', $customer->is_inmotiv_customer) != 1 ?: 'checked' }}>
                         <span></span>
                         <span>Is Inmotiv Customer ?</span>
                     </label>

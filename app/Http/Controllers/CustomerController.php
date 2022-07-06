@@ -86,7 +86,16 @@ class CustomerController extends Controller
 
     public function update(UpdateCustomerRequest $request, Customer $customer): RedirectResponse
     {
-        $customer->update($request->validated());
+        $customer->update(
+            array_merge(
+                $request->validated(),
+                [
+                    'is_delivery_bpost'=>$request->get('is_delivery_bpost', 0),
+                    'is_inmotiv_customer'=>$request->get('is_inmotiv_customer', 0),
+                    'is_delivery_grouped'=>$request->get('is_delivery_grouped', 0)
+                ]
+            )
+        );
 
         if ($request->file()) {
             $fileName = $customer->id . '.' . $request->file('process_file')->getClientOriginalExtension();
@@ -106,6 +115,8 @@ class CustomerController extends Controller
                 }
             }
         }
+
+        //dd($request);
         return redirect()
             ->route('customers.index')
             ->withSuccess('Customer has been updated successfully.');
