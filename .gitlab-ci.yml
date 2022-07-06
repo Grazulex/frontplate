@@ -92,4 +92,4 @@ deploy_prod:
   - master
   environment:
     name: production
-    url: https://frontpage.jnkconsult.be
+    url: https://frontplate.jnkconsult.be
