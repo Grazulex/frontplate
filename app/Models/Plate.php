@@ -23,6 +23,7 @@ class Plate extends Model
         'is_cod',
         'is_incoming',
         'is_rush',
+        'amount',
         'created_at',
         'production_id',
         'incoming_id',
