@@ -41,7 +41,9 @@
             <tbody>
                 @forelse ($customers as $customer)
                     <tr>
-                        <td>{{ $customer->name }}</td>
+                        <td>
+                            {{ $customer->name }}
+                        </td>
                         <td>
                             <div
                                 class="badge uppercase {{ $customer->delivery_type->name == App\Enums\DeliveryTypeEnums::BPOST->name ? 'badge_primary' : 'badge_secondary' }}">
@@ -51,6 +53,9 @@
                         <td>
                             @if ($customer->is_inmotiv_customer)
                                 <i class="las la-check-circle"></i>
+                                @if ($customer->enum_ref)
+                                    <small>({{ $customer->enum_ref }})</small>
+                                @endif
                             @endif
                         </td>
                         <td>

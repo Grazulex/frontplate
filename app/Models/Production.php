@@ -15,14 +15,14 @@ class Production extends Model
     protected $searchableFields = ['*'];
 
     /**
-     * 
-     * @return HasMany 
+     *
+     * @return HasMany
      */
     public function plates(): HasMany
     {
         return $this->hasMany(
             related: Plate::class,
             foreignKey: 'production_id'
-        );
+        )->orderBy('customer_key');
     }
 }
