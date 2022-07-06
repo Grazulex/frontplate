@@ -12,9 +12,9 @@ use Illuminate\Http\JsonResponse;
 
 class IncomingController extends Controller
 {
-    public function getAmountCod(Incoming $incoming)
+    public function getAmountCod(Request $request)
     {
-        $plates = Plate::where('incoming_id', $incoming->id)
+        $plates = Plate::where('incoming_id', $request->get('id'))
         ->where('is_cod', 1)
         ->where('is_rush', 0)
         ->sum('amount');
@@ -22,29 +22,29 @@ class IncomingController extends Controller
         return Response()->Json($plates);
     }
 
-    public function getAmountRush(Incoming $incoming)
+    public function getAmountRush(Request $request)
     {
-        $plates = Plate::where('incoming_id', $incoming->id)
+        $plates = Plate::where('incoming_id', $request->get('id'))
         ->where('is_rush', 1)
         ->sum('amount');
 
         return Response()->Json($plates);
     }
 
-    public function getCod(Incoming $incoming)
+    public function getCod(Request $request)
     {
         $plates = Plate::select(['id', 'reference', 'amount'])
-            ->where('incoming_id', $incoming->id)
+            ->where('incoming_id', $request->get('id'))
             ->where('is_cod', 1)
             ->where('is_rush', 0)
             ->get();
 
         return Response()->Json($plates);
     }
-    public function getNonCod(Incoming $incoming)
+    public function getNonCod(Request $request)
     {
         $plates = Plate::select(['id', 'reference', 'amount'])
-            ->where('incoming_id', $incoming->id)
+            ->where('incoming_id', $request->get('id'))
             ->where('is_cod', 0)
             ->where('is_rush', 0)
             ->get();
@@ -52,10 +52,10 @@ class IncomingController extends Controller
         return Response()->Json($plates);
     }
 
-    public function getRush(Incoming $incoming)
+    public function getRush(Request $request)
     {
         $plates = Plate::select(['id', 'reference', 'amount'])
-            ->where('incoming_id', $incoming->id)
+            ->where('incoming_id', $request->get('id'))
             ->where('is_rush', 1)
             ->get();
 
