@@ -42,7 +42,7 @@ class UpdateAmountCommand extends Command
             if (!empty($plate['datas']) && isset($plate['datas']['price'])) {
                 $price = (float)(str_replace(',', '.', $plate['datas']['price']));
                 $this->info('Update plate '.$plate['reference'].' with price'. $price);
-                $plate->amount = $price;
+                $plate->amount = $price*100;
                 $plate->update();
             }
         }

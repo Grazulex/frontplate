@@ -36,6 +36,7 @@ class Plate extends Model
         'is_cod'    => 'boolean',
         'is_rush'   => 'boolean',
         'is_incoming'   => 'boolean',
+        'amount' => 'integer'
     ];
 
     protected $searchableFields = ['*'];
