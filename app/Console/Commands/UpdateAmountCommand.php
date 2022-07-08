@@ -43,6 +43,15 @@ class UpdateAmountCommand extends Command
                 $price = (float)(str_replace(',', '.', $plate['datas']['price']));
                 $this->info('Update plate '.$plate['reference'].' with price'. $price);
                 $plate->amount = $price*100;
+                if (isset($plate['datas']['plate_type'])) {
+                    $plate->plate_type = $plate['datas']['plate_type'];
+                }
+                if (isset($plate['datas']['product_type'])) {
+                    $plate->product_type = $plate['datas']['product_type'];
+                }
+                if (isset($plate['datas']['clientcode'])) {
+                    $plate->client_code = $plate['datas']['clientcode'];
+                }
                 $plate->update();
             }
         }

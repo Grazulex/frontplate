@@ -27,7 +27,10 @@ class Plate extends Model
         'created_at',
         'production_id',
         'incoming_id',
-        'datas'
+        'datas',
+        'plate_type',
+        'product_type',
+        'client_code'
     ];
 
     protected $casts = [
