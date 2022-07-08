@@ -87,6 +87,17 @@ class ImportInmotivCommand extends Command
                             'is_incoming'   => $is_incoming,
                             'datas'         => $order
                         ]);
+
+                        if (isset($order['plate_type'])) {
+                            $plate->plate_type = $order['plate_type'];
+                        }
+                        if (isset($order['product_type'])) {
+                            $plate->product_type = $order['product_type'];
+                        }
+                        if (isset($order['clientcode'])) {
+                            $plate->client_code = $order['clientcode'];
+                        }
+                        $plate->update();
                         $inserted++;
                     }
                 }
