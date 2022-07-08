@@ -39,10 +39,12 @@ class UpdateAmountCommand extends Command
     {
         $plates = Plate::all();
         foreach ($plates as $plate) {
-            if (!empty($plate['datas']) && isset($plate['datas']['price'])) {
-                $price = (float)(str_replace(',', '.', $plate['datas']['price']));
-                $this->info('Update plate '.$plate['reference'].' with price'. $price);
-                $plate->amount = $price*100;
+            if (!empty($plate['datas'])) {
+                if (isset($plate['datas']['price'])) {
+                    $price = (float)(str_replace(',', '.', $plate['datas']['price']));
+                    $this->info('Update plate '.$plate['reference'].' with price'. $price);
+                    $plate->amount = $price*100;
+                }
                 if (isset($plate['datas']['plate_type'])) {
                     $plate->plate_type = $plate['datas']['plate_type'];
                 }
