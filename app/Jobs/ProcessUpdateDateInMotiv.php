@@ -10,6 +10,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class ProcessUpdateDateInMotiv implements ShouldQueue
 {
@@ -23,7 +24,7 @@ class ProcessUpdateDateInMotiv implements ShouldQueue
      *
      * @return void
      */
-    public function __construct(Plate $plate, array $datas=[])
+    public function __construct(Plate $plate, array $datas = [])
     {
         $this->plate = $plate;
         $this->datas = $datas;
@@ -39,23 +40,29 @@ class ProcessUpdateDateInMotiv implements ShouldQueue
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Content-Type' => 'application/x-www-form-urlencoded'
-            ])->asForm()->post(
-                env('OTM_INMOTIV_ENDPOINT_TOKEN'),
-                [
-                        'client_id' => env('OTM_INMOTIV_CLIENT_ID'),
-                        'client_secret' => env('OTM_INMOTIV_SECRET_ID'),
-                        'scope' => 'openid',
-                        'grant_type' => 'client_credentials'
-                ]
-            );
+        ])->asForm()->post(
+            env('OTM_INMOTIV_ENDPOINT_TOKEN'),
+            [
+                'client_id' => env('OTM_INMOTIV_CLIENT_ID'),
+                'client_secret' => env('OTM_INMOTIV_SECRET_ID'),
+                'scope' => 'openid',
+                'grant_type' => 'client_credentials'
+            ]
+        );
         if ($response->successful()) {
             $token = $response->json('access_token');
             $responseDatas = Http::withHeaders([
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
-                'Authorization' => 'Bearer '.$token
-            ])->patch(env('OTM_INMOTIV_ENDPOINT_API').'/webdiv/orders/1.0/'.$this->plate->order_id, $this->datas);
+                'Authorization' => 'Bearer ' . $token
+            ])->patch(env('OTM_INMOTIV_ENDPOINT_API') . '/webdiv/orders/1.0/' . $this->plate->order_id, $this->datas);
             if ($responseDatas->successful()) {
+                Log::debug("ok");
+                Log::debug($responseDatas->body());
+            } else {
+                Log::debug("nok");
+                Log::debug($responseDatas->headers());
+                Log::debug($responseDatas->body());
             }
         }
     }
