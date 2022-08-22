@@ -51,18 +51,21 @@ class ProcessUpdateDateInMotiv implements ShouldQueue
         );
         if ($response->successful()) {
             $token = $response->json('access_token');
-            $responseDatas = Http::withHeaders([
-                'Accept' => 'application/json',
-                'Content-Type' => 'application/json',
-                'Authorization' => 'Bearer ' . $token
-            ])->patch(env('OTM_INMOTIV_ENDPOINT_API') . '/webdiv/orders/1.0/' . $this->plate->order_id, $this->datas);
-            if ($responseDatas->successful()) {
-                Log::debug("ok");
+            try {
+                $responseDatas = Http::withHeaders([
+                    'Accept' => 'application/json',
+                    'Content-Type' => 'application/json',
+                    'Authorization' => 'Bearer ' . $token
+                ])->patch(env('OTM_INMOTIV_ENDPOINT_API') . '/webdiv/orders/1.0/' . $this->plate->order_id, $this->datas);
+                Log::debug("API: ok");
                 Log::debug($responseDatas->body());
-            } else {
-                Log::debug("nok");
                 Log::debug($responseDatas->headers());
+            } catch (\Exception $e) {
+                Log::debug("API: nok");
                 Log::debug($responseDatas->body());
+                Log::debug($responseDatas->headers());
+                Log::debug($e->getCode());
+                Log::debug($e->getMessage());
             }
         }
     }
