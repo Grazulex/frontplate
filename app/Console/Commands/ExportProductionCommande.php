@@ -55,8 +55,7 @@ class ExportProductionCommande extends Command
                 $q->orWhere(function ($q) {
                     $q->where('is_incoming', 1)->whereNotNull('incoming_id');
                 });
-            })->get()
-            ;
+            })->get();
         if ($plates->count() > 0) {
             $production = Production::create();
             foreach ($plates as $plate) {
@@ -66,11 +65,11 @@ class ExportProductionCommande extends Command
                 ]);
                 $plate->update();
                 if ($plate->origin === OriginEnums::INMOTIV) {
-                    $datas=['PRODUCTION_DATE'=>Carbon::now()->format('Y-m-d\TH:i:s')];
+                    $datas = ['PRODUCTION_DATE' => Carbon::now()->format('Y-m-d\TH:i:s')];
                     ProcessUpdateDateInMotiv::dispatch($plate, $datas);
                 }
                 if ($plate->origin === OriginEnums::ESHOP) {
-                    $datas=['SEND_DATE'=>Carbon::now()->format('Y-m-d\TH:i:s')];
+                    $datas = ['SEND_DATE' => Carbon::now()->format('Y-m-d\TH:i:s')];
                     //ProcessUpdateDateEshop::dispatch($plate, $datas);
                 }
             }
@@ -80,14 +79,14 @@ class ExportProductionCommande extends Command
 
             $destinataires = explode(',', env('OTM_PRODUCTIONS_EMAILS'));
             foreach ($destinataires as $recipient) {
-                $this->info('Mail send to  '.$recipient);
+                $this->info('Mail send to  ' . $recipient);
                 Mail::to($recipient)->send(new MailProduction($production));
             }
 
             $productionService->deleteCSV();
 
             if (count($plates) > 0) {
-                ProcessInsertNotification::dispatch('Exportation CSV production Done. Find '.count($plates). ' plates');
+                ProcessInsertNotification::dispatch('Exportation CSV production Done. Find ' . count($plates) . ' plates');
             }
         }
     }
